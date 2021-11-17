@@ -3,7 +3,7 @@ import {Row, Col} from 'reactstrap'
 import '../assets/css/forms.css'
 
 
-export const Micuenta = () => {
+export default function Micuenta () {
     return (
       
         <div className="regwrapper fadeInDown container">

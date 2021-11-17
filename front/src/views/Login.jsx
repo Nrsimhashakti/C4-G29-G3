@@ -5,8 +5,6 @@ import team from '../assets/images/team.jpg';
 import '../assets/css/login.css';
 
 
-
-
 export const Login = () => {
   
     const[documento, setDocumento]=useState('')

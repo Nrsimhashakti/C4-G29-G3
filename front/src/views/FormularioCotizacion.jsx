@@ -5,7 +5,7 @@ import { Col, Row } from 'reactstrap'
 import '../assets/css/forms.css';
 
 
-export const FormularioCotizacion = () => {
+export default function FormularioCotizacion () {
     const[nombre, setNombre]=useState('')
     const[apellido, setApellido]=useState('')
     const[documento, setDocumento]=useState('')
@@ -32,7 +32,7 @@ export const FormularioCotizacion = () => {
 
         if(mensaje!=='Bienvenido'){
             Swal.fire({
-                icon:'success',
+                icon:'error',
                 title:mensaje,
                 showConfirmButton:false,
                 
@@ -47,12 +47,12 @@ export const FormularioCotizacion = () => {
             sessionStorage.setItem('nombre',nombre)
             sessionStorage.setItem('idsocio', idsocio)
 
-            Swal.fire({
-                icon:'success',
-                title:mensaje,
-                showConfirmButton:false,
-                timer:1500
-            })
+            // Swal.fire({
+            //     icon:'success',
+            //     title:mensaje,
+            //     showConfirmButton:false,
+            //     timer:1500
+            // })
         }
 
     }

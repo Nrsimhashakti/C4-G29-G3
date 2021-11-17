@@ -31,7 +31,8 @@ export const LoginAdmin = () => {
 
             sessionStorage.setItem('token', token)
             sessionStorage.setItem('nombre',nombre)
-            sessionStorage.setItem('idsocio', idadmin)
+            sessionStorage.setItem('idadmin', idadmin)
+            window.location.href='/menuadmin'
 
             Swal.fire({
                 icon:'success',

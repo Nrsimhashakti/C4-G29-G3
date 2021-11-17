@@ -44,7 +44,7 @@ const data = [
     {socio: 112, nombre:'Jimena', apellido: 'Ostos', telefono: 3123456789, correo: 'jiostos87@gmail.com', documento: 1007673245, contraseña: 'AdrecitoGod123' },
 ]
 
-export const HistorialSocio = () => {
+export default function HistorialSocio (){
     return (
         <div className='content'>
             <Button variant="outlined">Consultar Socio</Button>

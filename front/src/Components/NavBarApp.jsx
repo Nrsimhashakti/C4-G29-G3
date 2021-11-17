@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../assets/images/logo.png';
 import {Link} from "react-router-dom";
 
-export const NavBarApp = () => {
+export default function NavBarApp () {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark" style={menu}>
@@ -16,7 +16,7 @@ export const NavBarApp = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/inicio" className="nav-link" ><i className="fas fa-handshake"></i>INICIO</Link>
+                            <Link to="/" className="nav-link" ><i className="fas fa-handshake"></i>INICIO</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/nosotros" className="nav-link"><i className="fas fa-building"></i>NOSOTROS</Link>
@@ -49,4 +49,3 @@ const imagen ={
     borderRadius : "20px",
     marginLeft : "50px"
 }
-

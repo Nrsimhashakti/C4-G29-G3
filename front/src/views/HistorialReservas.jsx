@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HistorialReservas = () => {
+export default function HistorialReservas () {
     return (
         <div>
             <h1>HistorialReservasss</h1>

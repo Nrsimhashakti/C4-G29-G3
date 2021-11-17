@@ -21,13 +21,13 @@ export const NavBarSocio = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link to="/cotizacion" className="nav-link">COTIZAR</Link>
+                            <Link to="/cotizacion" className="nav-link"><i class="fas fa-book"></i>COTIZAR</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/reserva" className="nav-link">RESERVAR</Link>
+                            <Link to="/reserva" className="nav-link"><i class="fas fa-wine-glass"></i>RESERVAR</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/historial" className="nav-link">HISTORIAL</Link>
+                            <Link to="/historial" className="nav-link"><i class="fas fa-clipboard"></i>HISTORIAL</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/micuenta" className="nav-link">MI CUENTA</Link>

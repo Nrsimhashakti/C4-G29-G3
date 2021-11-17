@@ -1,6 +1,7 @@
 import React from 'react'
 import { RouterAdmin } from '../routers/RouterAdmin';
-export const Logueado1 = () => {
+
+export default function Logueado1() {
     return (
         <div>
             <RouterAdmin/>

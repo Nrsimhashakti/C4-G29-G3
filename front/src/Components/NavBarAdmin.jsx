@@ -3,7 +3,11 @@ import {Link} from "react-router-dom";
 import logo from '../assets/images/logo.png';
 
 
-export const NavBarAdmin = () => {
+export default function NavBarAdmin () {
+    const salir=()=>{
+        sessionStorage.clear();
+        window.location.href='/'
+    }
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark" style={menu}>
@@ -24,17 +28,9 @@ export const NavBarAdmin = () => {
                         <li className="nav-item">
                             <Link to="/historialcotizacion" className="nav-link">HISTORIAL COTIZACIÓN</Link>
                         </li>
+                        
                         <li className="nav-item">
-                            <Link to="/registroreservas" className="nav-link">REGISTRO REV</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/registrosocio" className="nav-link">REGISTRO soc</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/registrocotizacion" className="nav-link">REGISTRO COT</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/inicio" className="nav-link">CERRAR SESIÓN</Link>
+                            <Link to="/" onClick={()=>salir()} className="nav-link">CERRAR SESIÓN</Link>
                         </li>
                         
                     </ul>
