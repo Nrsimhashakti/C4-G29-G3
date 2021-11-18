@@ -26,7 +26,7 @@ export default function Micuenta (props) {
         setCorreo(respuesta.data.correo)
         setTelefono(respuesta.data.telefono)
  
-        
+
 
     }
     const actualizar= async(e)=>{
