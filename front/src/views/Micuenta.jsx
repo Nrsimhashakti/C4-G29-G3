@@ -25,9 +25,6 @@ export default function Micuenta (props) {
         setApellido(respuesta.data.apellido)
         setCorreo(respuesta.data.correo)
         setTelefono(respuesta.data.telefono)
- 
-
-
     }
     const actualizar= async(e)=>{
         const id=sessionStorage.getItem('idsocio')
