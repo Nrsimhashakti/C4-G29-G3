@@ -31,6 +31,9 @@ import HistorialSocio from "./views/HistorialSocio";
 import HistorialCotizacion from "./views/HistorialCotizacion";
 
 
+import EditarHistorialSocio from './views/EditarHistorialSocio'
+
+
 
 
 
@@ -69,6 +72,8 @@ function App() {
       <Route path='/reserva' exact component={FormularioReserva}/>
       <Route path='/historial' exact component={Historial}/>
       <Route path='/micuenta' exact component={Micuenta}/>
+
+      <Route path='/editar/:id' exact component={EditarHistorialSocio}/>
 
       {/* ADMINISTRADOR */}
       <Route path='/menuadmin' exact component={NavBarAdmin}/>

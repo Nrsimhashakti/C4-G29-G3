@@ -3,10 +3,10 @@ const {Schema} = mongoose;
 
 
 const cotizacionSchema = new Schema({ 
-    nombre: {type: String, required: [true, 'Nombre obligatorio']}, 
-    apellido: {type: String, required: [true, 'Apellido obligatorio']}, 
+    nombre: String,  
+    apellido: String,
     documento: String,
-    correo: {type: String, required: [true, 'Correo obligatorio']}, 
+    correo: String,
     telefono: Number,
     tipo_evento: String,
     num_personas: Number,  

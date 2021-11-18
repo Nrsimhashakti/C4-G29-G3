@@ -7,11 +7,11 @@ import '../assets/css/forms.css';
 
 
 export default function  FormularioReserva () {
-    const[nombre, setNombre]=useState('')
-    const[apellido, setApellido]=useState('')
-    const[documento, setDocumento]=useState('')
-    const[correo, setCorreo]=useState('')
-    const[telefono, setTelefono]=useState('')
+    // const[nombre, setNombre]=useState('')
+    // const[apellido, setApellido]=useState('')
+    // const[documento, setDocumento]=useState('')
+    // const[correo, setCorreo]=useState('')
+    // const[telefono, setTelefono]=useState('')
     const[tipo_evento, setTipoEvento]=useState('')
     const[num_personas, setNumPersonas]=useState('')
     const[area, setArea]=useState('')
@@ -26,7 +26,13 @@ export default function  FormularioReserva () {
 
     const reserva=async(e)=>{
         e.preventDefault();
-        const usuario={documento,nombre, apellido, correo, telefono, tipo_evento, num_personas,area, fecha, hora, comida, bebidas, grupo_musical, adicionales}
+        const usuario={
+            // documento,
+            // nombre, 
+            // apellido, 
+            // correo, 
+            // telefono, 
+            tipo_evento, num_personas,area, fecha, hora, comida, bebidas, grupo_musical, adicionales, socio:sessionStorage.getItem('idsocio')}
         const respuesta = await Axios.post('/reserva/nueva-reserva', usuario);
 
         const mensaje = respuesta.data.mensaje
@@ -63,10 +69,10 @@ export default function  FormularioReserva () {
             <div className="regwrapper fadeInDown container">
                 <div className="user-details2 ">
                     {/* <!-- Tabs Titles --> */}
-                    <h3 className="active fadeIn first"> RESERVA AQUÍ </h3>  
+                    <h3 className="active fadeIn first"> RESERVA AQUÍ {sessionStorage.getItem('nombre')} </h3>  
                     {/* <!-- Login Form --> */}
                     <form onSubmit={reserva}>
-                        <Row xs="2" className="input-resev">
+                        {/* <Row xs="2" className="input-resev">
                             <Col><input type="text" className="fadeIn first"  name="login" placeholder="Documento"  onChange={(e) =>setDocumento(e.target.value)} required/></Col>
                         </Row>
                         <Row xs="2" className="input-resev">
@@ -76,7 +82,7 @@ export default function  FormularioReserva () {
                         <Row xs="2" className="input-resev">
                             <Col><input type="number" className="fadeIn second" name="login" placeholder="Teléfono"  onChange={(e) =>setTelefono(e.target.value)} required/></Col>
                             <Col><input type="email" className="fadeIn second" name="login" placeholder="Correo" onChange={(e) =>setCorreo(e.target.value)} required/></Col>
-                        </Row>
+                        </Row> */}
                         <Row xs="3" className="input-resev">
                             <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)}>
                                     <option selected>Seleccione evento:</option>
@@ -129,6 +135,6 @@ export default function  FormularioReserva () {
                     </form>
                 </div>
             </div>
-            </div>
+        </div>
    )
 }

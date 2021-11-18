@@ -30,10 +30,10 @@ export const NavBarSocio = () => {
                             <Link to="/historial" className="nav-link"><i class="fas fa-clipboard"></i>HISTORIAL</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/micuenta" className="nav-link">MI CUENTA</Link>
+                            <Link to="/micuenta" className="nav-link"><i class="fas fa-id-card"></i>MI CUENTA</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/inicio" onClick={()=>salir()} className="nav-link">CERRAR SESIÓN</Link>
+                            <Link to="/inicio" onClick={()=>salir()} className="nav-link"><i class="fas fa-sign-out-alt"></i>SALIR</Link>
                         </li>
                     </ul>
                 </div>
