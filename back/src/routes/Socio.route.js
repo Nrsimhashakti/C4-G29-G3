@@ -7,6 +7,8 @@ router.post('/nuevo-socio',SocioCtrl.crearSocio)
 router.post('/login', SocioCtrl.login)
 router.get('/listar-socios', SocioCtrl.listar)
 router.get('/listar-socio/:documento', SocioCtrl.listarDoc)
+//---------------- Insertar----------------
+router.get('/listar-socioid/:id', SocioCtrl.listarId)
 router.delete('/eliminar-socio/:id', SocioCtrl.eliminarSocio)
 router.put('/actualizar-socio/:id',  SocioCtrl.actualizarSocio)
 router.get('/buscar-socio/:documento', SocioCtrl.buscarSocio)

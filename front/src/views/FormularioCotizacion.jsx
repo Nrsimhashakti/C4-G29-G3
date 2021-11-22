@@ -6,99 +6,137 @@ import '../assets/css/forms.css';
 
 
 export default function FormularioCotizacion () {
-    // const[nombre, setNombre]=useState('')
-    // const[apellido, setApellido]=useState('')
-    // const[documento, setDocumento]=useState('')
-    // const[correo, setCorreo]=useState('')
-    // const[telefono, setTelefono]=useState('')
-    const[tipo_evento, setTipoEvento]=useState('')
-    const[num_personas, setNumPersonas]=useState('')
-    const[area, setArea]=useState('')
-    const[fecha, setFecha]=useState('')
-    const[hora, setHora]=useState('')
-    const[comida, setComida]=useState('')
-    const[bebidas, setBebidas]=useState('')
-    const[grupo_musical, setGrupoMusical]=useState('')
-    const[adicionales, setAdicionales]=useState('')
 
- 
+    const[tipo_evento, setTipoEvento]=useState('');
+    const[num_personas, setNumPersonas]=useState('');
+    const[area, setArea]=useState('');
+    const[fecha, setFecha]=useState('');
+    const[hora, setHora]=useState('');
+    const[comida, setComida]=useState('');
+    const[bebidas, setBebidas]=useState('');
+    const[grupo_musical, setGrupoMusical]=useState('');
+    const[adicionales, setAdicionales]=useState('');
+    const[estadoComida, setEstadoComida]=useState({buffet:false, servicio:false, bocadillos: false, cathering:false});
+    const[estadoBebidas, setEstadoBebidas]=useState({vino:false, wisky:false, tequila: false, agua:false});
+    const[estadoMusica, setEstadoMusica]=useState({dj:false, parranda:false, serenata: false});
 
-    const cotizacion=async(e)=>{
+
+    const cotizar=async(e)=>{
         e.preventDefault();
-        const usuario={
-            // documento,
-            // nombre, 
-            // apellido, 
-            // correo, 
-            // telefono, 
-            tipo_evento, num_personas,area, fecha, hora, comida, bebidas, grupo_musical, adicionales, socio:sessionStorage.getItem('idsocio')}
-             const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', usuario);
+        const idSocio=sessionStorage.getItem('idsocio');
+        const respuestaSocio= await Axios.get('/socio/listar-socioid/'+idSocio);
+        const nombre=respuestaSocio.data.nombre;
+        const apellido=respuestaSocio.data.apellido;
+        const documento=respuestaSocio.data.documento;
+        const correo=respuestaSocio.data.correo;
+        const telefono=respuestaSocio.data.telefono;
 
-        const mensaje = respuesta.data.mensaje
+        const cotizacion={
+            nombre, 
+            apellido, 
+            documento,
+            correo, 
+            telefono, 
+            tipo_evento, 
+            num_personas,
+            area, fecha, 
+            hora, comida, 
+            bebidas, 
+            grupo_musical, 
+            adicionales}
 
-        if(mensaje!=='Bienvenido'){
+            const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', cotizacion);
+
+            const mensaje = respuesta.data.mensaje
+
             Swal.fire({
                 icon:'success',
                 title:mensaje,
                 showConfirmButton:false,
-                
             })
-        }
-        else{
-            const token=respuesta.data.token
-            const nombre=respuesta.data.nombre
-            const idsocio=respuesta.data.idsocio
-
-            sessionStorage.setItem('token', token)
-            sessionStorage.setItem('nombre',nombre)
-            sessionStorage.setItem('idsocio', idsocio)
-
-            // Swal.fire({
-            //     icon:'success',
-            //     title:mensaje,
-            //     showConfirmButton:false,
-            //     timer:1500
-            // })
-        }
-
     }
+
+    const onChangeComida=(tipo)=>{
+
+        if(tipo==='buffet' && !estadoComida.buffet){
+            setEstadoComida({buffet:true, servicio:false, bocadillos: false, cathering:false});
+            setComida('Buffet');
+        }else if (tipo==='servicio' && !estadoComida.servicio) {
+            setEstadoComida({buffet:false, servicio:true, bocadillos: false, cathering:false});
+            setComida('Servicio Americano');
+        }else if (tipo==='bocadillos' && !estadoComida.bocadillos) {
+            setEstadoComida({buffet:false, servicio:false, bocadillos: true, cathering:false});
+            setComida('Bocadillos');
+        }else if (tipo==='cathering' && !estadoComida.cathering) {
+            setEstadoComida({buffet:false, servicio:false, bocadillos: false, cathering:true});
+            setComida('Cathering');
+        }else{
+            setEstadoComida({buffet:false, servicio:false, bocadillos: false, cathering:false});
+            setComida('');
+        }
+    }
+
+    const onChangeBebidas=(tipo)=>{
+
+        if(tipo==='vino' && !estadoBebidas.vino){
+            setEstadoBebidas({vino:true, wisky:false, tequila: false, agua:false});
+            setBebidas('Vino Espumoso');
+        }else if (tipo==='wisky' && !estadoBebidas.wisky) {
+            setEstadoBebidas({vino:false, wisky:true, tequila: false, agua:false});
+            setBebidas('Wisky');
+        }else if (tipo==='tequila' && !estadoBebidas.tequila) {
+            setEstadoBebidas({vino:false, wisky:false, tequila: true, agua:false});
+            setBebidas('Tequila');
+        }else if (tipo==='agua' && !estadoBebidas.agua) {
+            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:true});
+            setBebidas('Agua');
+        }else{
+            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
+            setBebidas('');
+        }
+    }
+
+    const onChangeMusica=(tipo)=>{
+
+        if(tipo==='dj' && !estadoMusica.dj){
+            setEstadoMusica({dj:true, parranda:false, serenata: false});
+            setGrupoMusical('DJ');
+        }else if (tipo==='parranda' && !estadoMusica.parranda) {
+            setEstadoMusica({dj:false, parranda:true, serenata: false});
+            setGrupoMusical('Parranda Vallenata');
+        }else if (tipo==='serenata' && !estadoMusica.serenata) {
+            setEstadoMusica({dj:false, parranda:false, serenata: true});
+            setGrupoMusical('Serenata');
+        }else{
+            setEstadoMusica({dj:false, parranda:false, serenata: false});
+            setGrupoMusical('');
+        }
+    }
+
     return (
         <div>
-        {/* <!--=======content================================--> */}
+
             <div className="regwrapper fadeInDown container">
                 <div className="user-details2 ">
-                    {/* <!-- Tabs Titles --> */}
                     <h3 className="active fadeIn first"> COTIZA AQUÍ {sessionStorage.getItem('nombre')} </h3>
                            
-                    {/* <!-- Login Form --> */}
-                    <form onSubmit={cotizacion}>
-                        {/* <Row xs="2" className="input-resev">
-                            <Col><input type="text" className="fadeIn first"  name="login" placeholder="Documento"  onChange={(e) =>setDocumento(e.target.value)} required/></Col>
-                        </Row>
-                        <Row xs="2" className="input-resev">
-                            <Col><input type="text" className="fadeIn first"  name="login" placeholder="Nombre" onChange={(e) =>setNombre(e.target.value)} required/></Col>
-                            <Col><input type="text" className="fadeIn first" name="login" placeholder="Apellido" onChange={(e) =>setApellido(e.target.value)} required/></Col>
-                        </Row>
-                        <Row xs="2" className="input-resev">
-                            <Col><input type="number" className="fadeIn second" name="login" placeholder="Teléfono"  onChange={(e) =>setTelefono(e.target.value)} required/></Col>
-                            <Col><input type="email" className="fadeIn second" name="login" placeholder="Correo" onChange={(e) =>setCorreo(e.target.value)} required/></Col>
-                        </Row> */}
+                    <form onSubmit={cotizar}>
                         <Row xs="3" className="input-resev">
                             <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)}>
-                                    <option selected>Seleccione evento:</option>
-                                    <option value="matrimonio">Matrimonio</option>
-                                    <option value="grado">Grado</option>
-                                    <option value="cumpleaños">Cumpleaños</option>
-                                    <option value="reunion">Reunión Empresarial</option>
+                                    <option defaultValue>Seleccione evento:</option>
+                                    <option value="Matrimonio">Matrimonio</option>
+                                    <option value="Grado">Grado</option>
+                                    <option value="Cumpleaños">Cumpleaños</option>
+                                    <option value="Reunión Empresarial">Reunión Empresarial</option>
                                 </select></Col>
                             <Col><select name="tipoEspacio" id="tipoEspacio" className="fadeIn fourth " onChange={(e) =>setArea(e.target.value)}>
-                                    <option selected>Seleccione Area:</option>
-                                    <option value="presidencial">Salón presidencial</option>
-                                    <option value="gourtmet">Salón gourmet</option>
-                                    <option value="piscina">Piscina</option>
-                                    <option value="parilla">Terraza parilla</option>
-                                    <option value="futbol">Terraza fútbol</option>
-                                    <option value="parque">Parque</option>
+                                    <option defaultValue>Seleccione Area:</option>
+                                    <option value="Salón presidencial">Salón presidencial</option>
+                                    <option value="Salón gourmet">Salón gourmet</option>
+                                    <option value="Piscina">Piscina</option>
+                                    <option value="Terraza parilla">Terraza parilla</option>
+                                    <option value="Terraza fútbol">Terraza fútbol</option>
+                                    <option value="Parque">Parque</option>
                                 </select></Col>
 
                             <Col><input type="number" className="fadeIn third" name="login" placeholder="Número de personas" onChange={(e) =>setNumPersonas(e.target.value)}required/></Col>
@@ -110,34 +148,31 @@ export default function FormularioCotizacion () {
                         <Row xs="3" className="input-resev">
                             <Col>
                                 <h2 className="fadeIn fourth">COMIDA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" id="buffet" name="buffet" onChange={(e) =>setComida(e.target.value)} /> Buffet</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="americano" name="americano" onChange={(e) =>setComida(e.target.value)} /> Servicio Americano</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="bocadillos" name="bocadillos" onChange={(e) =>setComida(e.target.value)} /> Bocadillos</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="cathering" name="cathering" onChange={(e) =>setComida(e.target.value)} /> Cathering</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Buffet" onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} /> Buffet</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Servicio" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} /> Servicio Americano</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Bocadillos" onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} /> Bocadillos</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Cathering" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} /> Cathering</label><br />                            
                             </Col>
                             <Col>
                                 <h2 className="fadeIn fourth">BEBIDAS</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" id="vino" name="vino" onChange={(e) =>setBebidas(e.target.value)} /> Vino Espumoso</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="wisky" name="wisky" onChange={(e) =>setBebidas(e.target.value)} /> Wisky</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="tequila" name="tequila" onChange={(e) =>setBebidas(e.target.value)} /> Tequila</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="agua" name="agua" onChange={(e) =>setBebidas(e.target.value)} /> Agua</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="vino" name="Vino Espumoso" onChange={(e) =>onChangeBebidas('vino')} checked={estadoBebidas.vino} /> Vino Espumoso</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="wisky" name="Wisky" onChange={(e) =>onChangeBebidas('wisky')} checked={estadoBebidas.wisky}/> Wisky</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="tequila" name="Tequila" onChange={(e) =>onChangeBebidas('tequila')} checked={estadoBebidas.tequila}/> Tequila</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="agua" name="Agua" onChange={(e) =>onChangeBebidas('agua')} checked={estadoBebidas.agua}/> Agua</label><br />
                             </Col>
 
                             <Col>
                                 <h2 className="fadeIn fourth">MÚSICA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" id="dj" name="dj" onChange={(e) =>setGrupoMusical(e.target.value)}/> DJ</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="parranda" name="parranda" onChange={(e) =>setGrupoMusical(e.target.value)}/> Parranda Vallenata</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="serenata" name="serenata" onChange={(e) =>setGrupoMusical(e.target.value)}/> Serenata</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="DJ" name="DJ" onChange={(e) =>onChangeMusica('dj')} checked={estadoMusica.dj}/> DJ</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="Parranda Vallenata" name="Parranda Vallenata" onChange={(e) =>onChangeMusica('parranda')} checked={estadoMusica.parranda}/> Parranda Vallenata</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                             </Col>
                         </Row>
                         <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
                         <input type="submit" className="fadeIn fourth" value="COTIZAR"/>
-                    </form>
-                    
-                
-                    {/* <!-- Remind Passowrd --> */}
+                    </form>                    
                 </div>
             </div>
-            </div>
+        </div>
    )
 }

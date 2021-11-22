@@ -19,14 +19,14 @@ export const Eventos = () => {
             <div className="main">
                 {/* <!--=======content================================--> */}
             
-                <div className="content">
+                <div className="">
                 <div className="container_12">
                     <figure id="banner_internas">
                     <img className="img-responsive" style={{"width": "100%"}} src="https://www.clubcampestre.co/wp-content/uploads/2019/03/eventos-banner-club-campestre-1366x450_c.jpg" alt="Eventos" title="Eventos"/>
                     </figure>
             {/* <!-- EVENTOS SOCIALES --> */}
                     <div className="grid_12">
-                    <h3 style={{"padding-left": "450px", "padding-top": "20px"}}>EVENTOS SOCIALES</h3>
+                    <h3 style={{ "padding-top": "20px"}}>EVENTOS SOCIALES</h3>
                     </div>
                     <div className="boxes">
                     <div className="grid_4">
@@ -92,7 +92,7 @@ export const Eventos = () => {
                     </div>
             
                     <div className="grid_12">
-                    <h3 style={{"padding-left": "450px", "padding-top": "20px"}}>EVENTOS DEPORTIVOS</h3>
+                    <h3 style={{ "padding-top": "20px"}}>EVENTOS DEPORTIVOS</h3>
                     </div>
                     
                     <div className="boxes">

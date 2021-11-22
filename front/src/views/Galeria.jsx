@@ -23,10 +23,10 @@ export const Galeria = () => {
           <div className="main">
           {/* <!--=======content================================--> */}
 
-          <div className="content"><div className="ic"></div>
+          <div className=""><div className="ic"></div>
             <div className="container_12">
                 <div className="grid_12">
-                  <h3 style={{"padding-left": "350px", "padding-top": "20px"}}>Eventos Realizados en nuestro Club</h3>
+                  <h3 style={{"padding-top": "20px"}}>Eventos Realizados en nuestro Club</h3>
                 </div>
                 <div className="clear"></div>
                 <div className="gallery">

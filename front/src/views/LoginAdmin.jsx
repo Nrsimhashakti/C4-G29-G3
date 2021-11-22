@@ -27,11 +27,12 @@ export const LoginAdmin = () => {
         else{
             const token=respuesta.data.token
             const nombre=respuesta.data.nombre
-            const idadmin=respuesta.data.idadmin
+            const idadmin=respuesta.data.id
 
             sessionStorage.setItem('token', token)
             sessionStorage.setItem('nombre',nombre)
             sessionStorage.setItem('idadmin', idadmin)
+            
             window.location.href='/menuadmin'
 
             Swal.fire({
@@ -45,7 +46,7 @@ export const LoginAdmin = () => {
     }
     return (
         <div className="main">
-            <div className="content"> 
+            <div className=""> 
                 {/* <!--=======content================================--> */}
                 
                 

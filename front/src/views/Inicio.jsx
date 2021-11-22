@@ -28,7 +28,7 @@ export const Inicio = () => {
             {/* CARRUSEL */}
             
             <Carousel>
-            <Carousel.Item interval={1000}>
+            <Carousel.Item >
                 <img
                 className="d-block w-100"
                 src={slide1}
@@ -37,7 +37,7 @@ export const Inicio = () => {
                 />
                 
             </Carousel.Item>
-            <Carousel.Item interval={500}>
+            <Carousel.Item >
                 <img
                 className="d-block w-100"
                 src={slide2}
@@ -159,8 +159,11 @@ export const Inicio = () => {
                         <div className="card-body p-4">
                             <div className="card-text pt-1">
                                 <h5 className="member-name mb-0 text-center" style={servicios}>Felipe Andres Muñoz</h5>
-                                <div className="mb-3 text-center">Desarrollador</div>
+                                <div className="mb-3 text-center">Desarrollador Web</div>
                                 <div>Ingeniero Industrial</div>
+                                <div>Ibague, Tolima</div>
+                                <div>"Sea como un niño, nunca deje de sorprenderse" :
+</div>
                             </div>
                         </div>
                         
@@ -173,8 +176,10 @@ export const Inicio = () => {
                             
                             <div className="card-text pt-1">
                                 <h5 className="member-name mb-0 text-center" style={servicios}>Sebastian Barragan</h5>
-                                <div className="mb-3 text-center">Desarrollador</div>
-                                <div>"Descripcion"</div>
+                                <div className="mb-3 text-center">Desarrollador Web</div>
+                                <div>Ingeniero de Sistemas</div>
+                                <div>Bogotá D.C.</div>
+                                <div>"El exito se consigue con disciplina y perseverancia"</div>
                             </div>
                         </div>
                     
@@ -187,8 +192,10 @@ export const Inicio = () => {
                             
                             <div className="card-text pt-1">
                                 <h5 className="member-name mb-0 text-center " style={servicios}>Laura Castañeda</h5>
-                                <div className="mb-3 text-center">Desarrolladora</div>
-                                <div>"Descripción" </div>
+                                <div className="mb-3 text-center">Product Owner-Desarrolladora Web</div>
+                                <div>Ingeniera de Sistemas </div>
+                                <div>Bogota D.C. </div>
+                                <div>"El exito se consigue con disciplina y perseverancia"</div>
                             </div>
                         </div>
                     
@@ -201,8 +208,10 @@ export const Inicio = () => {
                             
                             <div className="card-text pt-1">
                                 <h5 className="member-name mb-0 text-center" style={servicios}>Diana Cataño</h5>
-                                <div className="mb-3 text-center">Product Manager</div>
-                                <div>"Descripcion"</div>
+                                <div className="mb-3 text-center">Desarrolladora Web</div>
+                                <div>Ingeniera Electronica</div>
+                                <div>Medellin, Antioquia</div>
+                                <div>"Vive la vida de que recordarás"</div>
                             </div>
                         </div>
                         
@@ -213,8 +222,10 @@ export const Inicio = () => {
                         <div className="card-body p-4">
                             <div className="card-text pt-1">
                                 <h5 className="member-name mb-0 text-center" style={servicios}>Diana Lorena Herrera</h5>
-                                <div className="mb-3 text-center">iOS Developer</div>
-                                <div>"Descripcion"</div>
+                                <div className="mb-3 text-center">Desarrolladora Web</div>
+                                <div>Ingeniera de Sistemas </div>
+                                <div>La Dorada, Caldas</div>
+                                <div>"Responde a toda llamada que excite tu espiritu. Rumi"</div>
                             </div>
                         </div>
                     

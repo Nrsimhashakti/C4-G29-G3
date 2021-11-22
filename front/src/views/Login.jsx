@@ -53,7 +53,7 @@ export const Login = () => {
 
     return (
             <div className="main">
-                <div className="content"> 
+                <div className=""> 
                     {/* <!--=======content================================--> */}
                     
                         <div className="wrapper fadeInDown">

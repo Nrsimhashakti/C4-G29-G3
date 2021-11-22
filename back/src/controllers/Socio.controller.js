@@ -48,11 +48,19 @@ SocioCtrl.listar=async(req,res)=>{
     res.json(respuesta)
 }
 
-
-//LISTAR SOCIO POR ID
+//-------Modificar-----------
+//LISTAR SOCIO POR DOCUMENTO
 SocioCtrl.listarDoc=async(req, res)=>{
+    const documento = req.params.documento
+    const respuesta = await Socio.findOne({documento:documento})
+    res.json(respuesta)
+}
+
+//-----Insertar-----------
+//LISTAR SOCIO POR ID
+SocioCtrl.listarId=async(req, res)=>{
     const id = req.params.id
-    const respuesta = await Socio.findOne({id:id})
+    const respuesta = await Socio.findById({_id:id})
     res.json(respuesta)
 }
 

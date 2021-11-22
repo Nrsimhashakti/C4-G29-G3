@@ -49,6 +49,7 @@ export default function Historial () {
                                     <th scope="col">BEBIDAS</th>
                                     <th scope="col">GRUPO MUSICAL</th>
                                     <th scope="col">ADICIONALES</th>
+                                    <th scope="col">ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>

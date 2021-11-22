@@ -31,7 +31,7 @@ import HistorialSocio from "./views/HistorialSocio";
 import HistorialCotizacion from "./views/HistorialCotizacion";
 
 
-import EditarHistorialSocio from './views/EditarHistorialSocio'
+import EditarHistorialSocio from "./views/EditarHistorialSocio";
 
 
 

@@ -20,17 +20,17 @@ export default function NavBarAdmin () {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link to="/historialreservas" className="nav-link">HISTORIAL RESERVAS</Link>
+                            <Link to="/historialreservas" className="nav-link"><i className="fas fa-clipboard"></i>HISTORIAL RESERVAS</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/historialsocio" className="nav-link">HISTORIAL SOCIO</Link>
+                            <Link to="/historialsocio" className="nav-link"><i className="fas fa-clipboard-list"></i>HISTORIAL SOCIO</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/historialcotizacion" className="nav-link">HISTORIAL COTIZACIÓN</Link>
+                            <Link to="/historialcotizacion" className="nav-link"><i className="fas fa-clipboard-check"></i>HISTORIAL COTIZACIÓN</Link>
                         </li>
                         
                         <li className="nav-item">
-                            <Link to="/" onClick={()=>salir()} className="nav-link">CERRAR SESIÓN</Link>
+                            <Link to="/" onClick={()=>salir()} className="nav-link"><i className="fas fa-sign-out-alt"></i>SALIR</Link>
                         </li>
                         
                     </ul>
@@ -41,7 +41,9 @@ export default function NavBarAdmin () {
 }
 
 const menu = {
-    backgroundColor: '#263555'
+    backgroundColor: '#263555',
+    fontSize: '16px'
+    
   };
 
 const imagen ={
