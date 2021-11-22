@@ -36,4 +36,57 @@
   "grupo_musical": "serenata",
   "adicionales": "ninguno",
   "__v": 0
+},{
+  "_id": {
+    "$oid": "6195c4007efe336039c7b63f"
+  },
+  "tipo_evento": "matrimonio",
+  "num_personas": 150,
+  "area": "Salón presidencial",
+  "fecha": "2021-11-19",
+  "hora": "22:14",
+  "comida": "on",
+  "bebidas": "on",
+  "grupo_musical": "on",
+  "adicionales": "decoracion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619bd82e2bf652c9e0b6ed0e"
+  },
+  "nombre": "Laura ",
+  "apellido": "Castañeda",
+  "documento": "35495955",
+  "correo": "laur@gmail.com",
+  "telefono": 32021563,
+  "tipo_evento": "Matrimonio",
+  "num_personas": 150,
+  "area": "Salón presidencial",
+  "fecha": "2021-11-22",
+  "hora": "12:53",
+  "comida": "Buffet",
+  "bebidas": "Tequila",
+  "grupo_musical": "Parranda Vallenata",
+  "adicionales": "nada",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619bda738e2e61b4bf711ff0"
+  },
+  "nombre": "Laura ",
+  "apellido": "Castañeda",
+  "documento": "35495955",
+  "correo": "laur@gmail.com",
+  "telefono": 32021563,
+  "tipo_evento": "Cumpleaños",
+  "num_personas": 20,
+  "area": "Piscina",
+  "fecha": "2021-11-25",
+  "hora": "12:02",
+  "comida": "Buffet",
+  "bebidas": "Tequila",
+  "grupo_musical": "Serenata",
+  "adicionales": "Decoraciones ",
+  "socio": "6189b2fda6574dadef8fa075",
+  "__v": 0
 }]

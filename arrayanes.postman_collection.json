@@ -316,6 +316,11 @@
 							"key": "adicionales",
 							"value": "ninguno",
 							"type": "text"
+						},
+						{
+							"key": "socio",
+							"value": "6189b2fda6574dadef8fa075",
+							"type": "text"
 						}
 					]
 				},
@@ -377,6 +382,27 @@
 						"cotizacion",
 						"listar-cotizacion",
 						"6189b337a6574dadef8fa07c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR COTIZACIONES POR SOCIOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/cotizacion/listar-cotizaciones-socio/6189b2fda6574dadef8fa075",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"cotizacion",
+						"listar-cotizaciones-socio",
+						"6189b2fda6574dadef8fa075"
 					]
 				}
 			},
@@ -610,6 +636,27 @@
 						"socio",
 						"listar-socio",
 						"1233888474"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR UN SOCIO POR ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/socio/listar-socioid/6189b2c0a6574dadef8fa071",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"socio",
+						"listar-socioid",
+						"6189b2c0a6574dadef8fa071"
 					]
 				}
 			},
