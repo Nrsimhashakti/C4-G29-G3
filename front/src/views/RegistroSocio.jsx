@@ -7,7 +7,7 @@ import { Col, Row } from 'reactstrap'
 
 
 
-export const RegistroSocio = () => {
+export default function RegistroSocio (){
     const[nombre, setNombre]=useState('')
     const[apellido, setApellido]=useState('')
     const[documento, setDocumento]=useState('')
@@ -33,6 +33,8 @@ export const RegistroSocio = () => {
         }
         
     }
+
+    
     return (
         <div>
             <div className="regwrapper fadeInDown container">
@@ -58,7 +60,7 @@ export const RegistroSocio = () => {
                             </Row>
                         </form>
                         <Row xs="">
-                        <input  className="input-resev1" onClick="location.href='/historialsocio'"  rows="8" cols="40" type="submit" value="Atrás"/>
+                            <input  className="input-resev1" onClick={e =>{e.preventDefault(); window.location.href='/historialsocio'}}  rows="8" cols="40" type="submit" value="Atrás"/>
                         </Row>
                   </div>
             </div>

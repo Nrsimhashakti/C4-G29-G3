@@ -21,19 +21,19 @@ export const NavBarSocio = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link to="/cotizacion" className="nav-link"><i class="fas fa-book"></i>COTIZAR</Link>
+                            <Link to="/cotizacion" className="nav-link"><i className="fas fa-book"></i>COTIZAR</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/reserva" className="nav-link"><i class="fas fa-wine-glass"></i>RESERVAR</Link>
+                            <Link to="/reserva" className="nav-link"><i className="fas fa-wine-glass"></i>RESERVAR</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/historial" className="nav-link"><i class="fas fa-clipboard"></i>HISTORIAL</Link>
+                            <Link to="/historial" className="nav-link"><i className="fas fa-clipboard"></i>HISTORIAL</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/micuenta" className="nav-link"><i class="fas fa-id-card"></i>MI CUENTA</Link>
+                            <Link to="/micuenta" className="nav-link"><i className="fas fa-id-card"></i>MI CUENTA</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/inicio" onClick={()=>salir()} className="nav-link"><i class="fas fa-sign-out-alt"></i>SALIR</Link>
+                            <Link to="/inicio" onClick={()=>salir()} className="nav-link"><i className="fas fa-sign-out-alt"></i>SALIR</Link>
                         </li>
                     </ul>
                 </div>

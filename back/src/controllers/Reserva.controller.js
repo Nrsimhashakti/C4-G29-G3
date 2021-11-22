@@ -50,7 +50,7 @@ ReservaCtrl.listarId=async(req, res)=>{
 
 //LISTAR LAS RESERVAS DE UN SOCIO
 
-ReservaCtrl.listarEmpleados_Jefe=async(req, res)=>{
+ReservaCtrl.listarReservas_Socio=async(req, res)=>{
     const id=req.params.id
     const respuesta = await Reserva.find({socio:id})
     res.json(respuesta)

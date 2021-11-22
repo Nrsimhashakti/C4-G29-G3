@@ -20,6 +20,11 @@ export default function EditarHistorialSocio(props) {
     const[grupo_musical, setGrupoMusical]=useState('')
     const[adicionales, setAdicionales]=useState('')
 
+    const[estadoComida, setEstadoComida]=useState({buffet:false, servicio:false, bocadillos: false, cathering:false});
+    const[estadoBebidas, setEstadoBebidas]=useState({vino:false, wisky:false, tequila: false, agua:false});
+    const[estadoMusica, setEstadoMusica]=useState({dj:false, parranda:false, serenata: false});
+
+
     useEffect(()=>{
         obtenerReservas()
         setTipoEventos(['Matrimonio','Grado','Cumpleaños','Reunion Empresarial'])
@@ -79,6 +84,63 @@ export default function EditarHistorialSocio(props) {
 
     }
 
+    const onChangeComida=(tipo)=>{
+
+        if(tipo==='buffet' && !estadoComida.buffet){
+            setEstadoComida({buffet:true, servicio:false, bocadillos: false, cathering:false});
+            setComida('Buffet');
+        }else if (tipo==='servicio' && !estadoComida.servicio) {
+            setEstadoComida({buffet:false, servicio:true, bocadillos: false, cathering:false});
+            setComida('Servicio Americano');
+        }else if (tipo==='bocadillos' && !estadoComida.bocadillos) {
+            setEstadoComida({buffet:false, servicio:false, bocadillos: true, cathering:false});
+            setComida('Bocadillos');
+        }else if (tipo==='cathering' && !estadoComida.cathering) {
+            setEstadoComida({buffet:false, servicio:false, bocadillos: false, cathering:true});
+            setComida('Cathering');
+        }else{
+            setEstadoComida({buffet:false, servicio:false, bocadillos: false, cathering:false});
+            setComida('');
+        }
+    }
+
+    const onChangeBebidas=(tipo)=>{
+
+        if(tipo==='vino' && !estadoBebidas.vino){
+            setEstadoBebidas({vino:true, wisky:false, tequila: false, agua:false});
+            setBebidas('Vino Espumoso');
+        }else if (tipo==='wisky' && !estadoBebidas.wisky) {
+            setEstadoBebidas({vino:false, wisky:true, tequila: false, agua:false});
+            setBebidas('Wisky');
+        }else if (tipo==='tequila' && !estadoBebidas.tequila) {
+            setEstadoBebidas({vino:false, wisky:false, tequila: true, agua:false});
+            setBebidas('Tequila');
+        }else if (tipo==='agua' && !estadoBebidas.agua) {
+            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:true});
+            setBebidas('Agua');
+        }else{
+            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
+            setBebidas('');
+        }
+    }
+
+    const onChangeMusica=(tipo)=>{
+
+        if(tipo==='dj' && !estadoMusica.dj){
+            setEstadoMusica({dj:true, parranda:false, serenata: false});
+            setGrupoMusical('DJ');
+        }else if (tipo==='parranda' && !estadoMusica.parranda) {
+            setEstadoMusica({dj:false, parranda:true, serenata: false});
+            setGrupoMusical('Parranda Vallenata');
+        }else if (tipo==='serenata' && !estadoMusica.serenata) {
+            setEstadoMusica({dj:false, parranda:false, serenata: true});
+            setGrupoMusical('Serenata');
+        }else{
+            setEstadoMusica({dj:false, parranda:false, serenata: false});
+            setGrupoMusical('');
+        }
+    }
+
     return(
         <div className="container col-md-6 mt-4">
         {/* <!--=======content================================--> */}
@@ -116,24 +178,25 @@ export default function EditarHistorialSocio(props) {
                             <Row xs="3" className="input-resev">
                                 <Col>
                                     <h2 className="fadeIn fourth">COMIDA</h2>
-                                    <label className="fadeIn fourth"><input type="checkbox" id="buffet" name="buffet" onChange={e =>setComida(e.target.value)} value={comida} /> Buffet</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="americano" name="americano" onChange={e =>setComida(e.target.value)} value={comida}/> Servicio Americano</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="bocadillos" name="bocadillos" onChange={e =>setComida(e.target.value)} value={comida} /> Bocadillos</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="cathering" name="cathering" onChange={e =>setComida(e.target.value)} value={comida}/> Cathering</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Buffet" onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} /> Buffet</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Servicio" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} /> Servicio Americano</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Bocadillos" onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} /> Bocadillos</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Cathering" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} /> Cathering</label><br />                            
                                 </Col>
                                 <Col>
                                     <h2 className="fadeIn fourth">BEBIDAS</h2>
-                                    <label className="fadeIn fourth"><input type="checkbox" id="vino" name="vino" onChange={e =>setBebidas(e.target.value)} value={bebidas}/> Vino Espumoso</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="wisky" name="wisky" onChange={e =>setBebidas(e.target.value)} value={bebidas} /> Wisky</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="tequila" name="tequila" onChange={e =>setBebidas(e.target.value)} value={bebidas}/> Tequila</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="agua" name="agua" onChange={e =>setBebidas(e.target.value)} value={bebidas} /> Agua</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="vino" name="Vino Espumoso" onChange={(e) =>onChangeBebidas('vino')} checked={estadoBebidas.vino} /> Vino Espumoso</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="wisky" name="Wisky" onChange={(e) =>onChangeBebidas('wisky')} checked={estadoBebidas.wisky}/> Wisky</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="tequila" name="Tequila" onChange={(e) =>onChangeBebidas('tequila')} checked={estadoBebidas.tequila}/> Tequila</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="agua" name="Agua" onChange={(e) =>onChangeBebidas('agua')} checked={estadoBebidas.agua}/> Agua</label><br />
                                 </Col>
+
 
                                 <Col>
                                     <h2 className="fadeIn fourth">MÚSICA</h2>
-                                    <label className="fadeIn fourth"><input type="checkbox" id="dj" name="dj" onChange={(e) =>setGrupoMusical(e.target.value)}/> DJ</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="parranda" name="parranda" onChange={(e) =>setGrupoMusical(e.target.value)}/> Parranda Vallenata</label><br />
-                                    <label className="fadeIn fourth"><input type="checkbox" id="serenata" name="serenata" onChange={(e) =>setGrupoMusical(e.target.value)}/> Serenata</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="DJ" name="DJ" onChange={(e) =>onChangeMusica('dj')} checked={estadoMusica.dj}/> DJ</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="Parranda Vallenata" name="Parranda Vallenata" onChange={(e) =>onChangeMusica('parranda')} checked={estadoMusica.parranda}/> Parranda Vallenata</label><br />
+                                    <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                                 </Col>
                             </Row>
                             <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)} value={adicionales}></textarea>

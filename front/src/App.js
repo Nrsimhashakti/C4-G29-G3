@@ -30,8 +30,8 @@ import HistorialReservas from "./views/HistorialReservas";
 import HistorialSocio from "./views/HistorialSocio";
 import HistorialCotizacion from "./views/HistorialCotizacion";
 
-
 import EditarHistorialSocio from "./views/EditarHistorialSocio";
+import RegistroSocio from "./views/RegistroSocio";
 
 
 
@@ -82,9 +82,11 @@ function App() {
       <Route path='/historialcotizacion' exact component={NavBarAdmin}/>
 
       
+      
       <Route path='/historialreservas' exact component={HistorialReservas}/>
       <Route path='/historialsocio' exact component={HistorialSocio}/>
       <Route path='/historialcotizacion' exact component={HistorialCotizacion}/>
+      <Route path='/registrosocio' exact component={RegistroSocio}/>
 
 
 

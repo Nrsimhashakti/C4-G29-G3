@@ -16,7 +16,8 @@ const cotizacionSchema = new Schema({
     comida: String, 
     bebidas: String, 
     grupo_musical: String, 
-    adicionales: String, 
+    adicionales: String,
+    socio: String
   
 });
 
