@@ -121,7 +121,7 @@ export default function  FormularioReserva () {
 
             <div className="regwrapper fadeInDown container">
                 <div className="user-details2 ">
-                    <h3 className="active fadeIn first"> RESERVA AQUÍ {sessionStorage.getItem('nombre')} </h3>
+                    <h3 className="active fadeIn first"> RESERVA AQUÍ  </h3>
                            
                     <form onSubmit={reservar}>
                         <Row xs="3" className="input-resev">

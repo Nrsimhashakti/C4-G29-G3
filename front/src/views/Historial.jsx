@@ -31,7 +31,7 @@ export default function Historial () {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
-                                <h1>Reservas de {sessionStorage.getItem('nombre')}</h1>
+                                <h3 style={titulo}>Reservas de {sessionStorage.getItem('nombre')}</h3>
 
                             </div>
                            
@@ -97,4 +97,10 @@ export default function Historial () {
         
     )
     
+}
+
+const titulo={
+    textAlign: "left",
+    fontSize: "42px"
+
 }

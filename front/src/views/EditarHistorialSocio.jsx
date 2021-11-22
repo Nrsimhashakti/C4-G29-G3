@@ -145,9 +145,9 @@ export default function EditarHistorialSocio(props) {
         <div className="container col-md-6 mt-4">
         {/* <!--=======content================================--> */}
             <div className="regwrapper fadeInDown">
-                <div className="card-header user-details2 ">
+                <div className="user-details2 ">
                 <h3>Editar</h3>
-                    <div className="card-body">
+                    <div className="">
                         <form onSubmit={actualizar}>
                             <Row xs="3" className="input-resev">
                                 <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) => setEventoSelect(e.target.value)} value={eventoselect}>

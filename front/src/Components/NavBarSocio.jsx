@@ -32,9 +32,18 @@ export const NavBarSocio = () => {
                         <li className="nav-item">
                             <Link to="/micuenta" className="nav-link"><i className="fas fa-id-card"></i>MI CUENTA</Link>
                         </li>
+                       
+                        
+                      
+                      
+                    
                         <li className="nav-item">
                             <Link to="/inicio" onClick={()=>salir()} className="nav-link"><i className="fas fa-sign-out-alt"></i>SALIR</Link>
                         </li>
+                        <li className="nav-item" style={{marginLeft: "100px"}}>
+                            <Link className="nav-link"> <i className='fas fa-user'></i> Bienvenid@ {sessionStorage.getItem('nombre')} </Link>
+                        </li>
+                        
                     </ul>
                 </div>
             </nav>
@@ -48,5 +57,5 @@ const menu = {
 
 const imagen ={
     borderRadius : "20px",
-    marginLeft : "50px"
+    marginLeft : "5px"
 }

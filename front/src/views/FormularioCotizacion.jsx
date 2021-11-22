@@ -120,7 +120,7 @@ export default function FormularioCotizacion () {
 
             <div className="regwrapper fadeInDown container">
                 <div className="user-details2 ">
-                    <h3 className="active fadeIn first"> COTIZA AQUÍ {sessionStorage.getItem('nombre')} </h3>
+                    <h3 className="active fadeIn first"> COTIZA AQUÍ </h3>
                            
                     <form onSubmit={cotizar}>
                         <Row xs="3" className="input-resev">
