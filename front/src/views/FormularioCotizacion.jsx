@@ -43,7 +43,9 @@ export default function FormularioCotizacion () {
             hora, comida, 
             bebidas, 
             grupo_musical, 
-            adicionales}
+            adicionales,
+            socio:sessionStorage.getItem('idsocio')
+        }
 
             const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', cotizacion);
 

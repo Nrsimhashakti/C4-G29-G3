@@ -43,7 +43,10 @@ export default function  FormularioReserva () {
             hora, comida, 
             bebidas, 
             grupo_musical, 
-            adicionales}
+            adicionales,
+            socio:sessionStorage.getItem('idsocio')
+
+        }
 
             const respuesta = await Axios.post('/reserva/nueva-reserva', reserva);
 

@@ -365,7 +365,6 @@ form .user-details2 .input-box{
 .user-details2 .input-resev input{
   font-size: 18px;
   border-radius: 5px;
-
   border: 1px solid rgb(33, 8, 124);
   border-bottom-width: 2px;
   transition: all 0.3s ease;
@@ -376,10 +375,22 @@ form .user-details2 .input-box{
 .user-details2 .input-resev1 input{
   font-size: 18px;
   border-radius: 5px;
-
   border: 1px solid rgb(33, 8, 124);
   border-bottom-width: 2px;
   transition: all 0.3s ease;
   font-family: 'Pathway Gothic One', sans-serif;
   margin-bottom: 80px;
 }
+
+
+.user-details2 .input-resev1 button{
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid rgb(33, 8, 124);
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin-bottom: 80px;
+}
+
+

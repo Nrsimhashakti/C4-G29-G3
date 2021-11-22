@@ -6,6 +6,7 @@ import { Col, Row } from 'reactstrap';
 import '../assets/css/historial.css';
 
 
+
 export default function HistorialSocio (){
 
     const [socios, setSocios]=useState([]);
@@ -102,26 +103,31 @@ export default function HistorialSocio (){
                         </div>
                         <div class="input-group rounded">
 
-                        <Row xs="2" className="opciones">
+                        <Row xs="2" className="">
                                 <Col>
-                                    <Row xs="2">
-                                        <Col>
-                                            <form>
+                                    <Row xs="2" >
+                                        
+                                            <form style={{width:"600px"}}>
                                             <div className="input-group rounded">
-                                                <input type="search" className="form-control" placeholder="Documento" aria-label="Search"
+                                                <input type="search" className="form-control"  placeholder="Documento" aria-label="Search"
                                                 aria-describedby="search-addon" onChange={(e)=>setDocBuscado(e.target.value)} required />
                                                 <span className="input-group-text border-0" id="search-addon" onClick={buscarSocio}>
                                                     <i className="fas fa-search"></i>
                                                 </span>
+
                                             </div>
+                                          
+                                        
                                             </form>
-                                        </Col>
-                                        <Col><button onClick={mostrarTodos}>Mostrar todos los socios</button></Col>
+                                          
                                     </Row>
                                 </Col>
-                                {/* <Col><button onClick={registro}>Mostrar todas las cotizaciones</button></Col> */}
-                                <Col><Link className='link pull-right' to={'/registrosocio'}>Crear Socio</Link></Col>
                             </Row>
+                            <input onClick={mostrarTodos} style={boton} type="submit" value="Mostrar Todos los Socios"/>
+
+                            <div>
+                                <input style={boton} onClick={e =>{e.preventDefault(); window.location.href='/registroSocio'}} type="submit" value="Crear Socio"/>
+                            </div>
 
                         </div>
 
@@ -162,7 +168,7 @@ export default function HistorialSocio (){
         </section>
 
         <div className="modal fade" id='actualizarCotizacion'>
-            <div className="modal-dialog modal-lg regwrapper fadeInDown container">
+            <div className="modal-dialog modal-lg regwrapper fadeInDown">
             <div className="modal-content user-details2">
                 <div className="modal-body">
                     <div className="modal-header">
@@ -188,4 +194,17 @@ export default function HistorialSocio (){
         </div>
         </div>
     )
+}
+
+
+const boton={
+    fontSize: "20px",
+    borderRadius: "5px",
+    border: "1px solid rgb(33, 8, 124)",
+    borderBottomWidth: "2px",
+    transition: "all 0.3s ease",
+    fontFamily: "Pathway Gothic One, sans-serif",
+    marginBottom: "80px",
+    backgroundColor: " rgb(33, 8, 124)"
+
 }

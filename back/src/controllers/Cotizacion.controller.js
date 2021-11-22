@@ -5,7 +5,7 @@ const Cotizacion= require('../models/Cotizacion.models');
 //CREAR COTIZACION 
 CotizacionCtrl.crearCotizacion= async(req,res)=>{
 
-    const{nombre,apellido,documento,correo,telefono,tipo_evento,num_personas,area,fecha,hora,comida, bebidas, grupo_musical, adicionales}= req.body;
+    const{nombre,apellido,documento,correo,telefono,tipo_evento,num_personas,area,fecha,hora,comida, bebidas, grupo_musical, adicionales,socio}= req.body;
 
     const NuevaCotizacion = new Cotizacion({
         nombre,
@@ -21,7 +21,8 @@ CotizacionCtrl.crearCotizacion= async(req,res)=>{
         comida,
         bebidas,
         grupo_musical,
-        adicionales
+        adicionales,
+        socio
     })
 
     const respuesta = await NuevaCotizacion.save()
@@ -78,5 +79,13 @@ CotizacionCtrl.buscarCotizacion = async(req, res)=>{
     res.json(respuesta)
 }
 
+//LISTAR LAS COTIZACIONES DE UN SOCIO
+
+CotizacionCtrl.listarCotizaciones_Socio=async(req, res)=>{
+    const id=req.params.id
+    const respuesta = await Cotizacion.find({socio:id})
+    res.json(respuesta)
+
+}
 
 module.exports= CotizacionCtrl

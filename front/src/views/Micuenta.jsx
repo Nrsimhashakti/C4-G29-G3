@@ -18,9 +18,9 @@ export default function Micuenta (props) {
     }, [])
 
     const obtenerDatos = async()=>{
-
-        setId(sessionStorage.getItem('idsocio'));
-        const respuesta= await Axios.get('/socio/listar-socioid/'+id);
+        const idsocio=sessionStorage.getItem('idsocio');
+        setId('idsocio');
+        const respuesta= await Axios.get('/socio/listar-socioid/'+idsocio);
         setNombre(respuesta.data.nombre);
         setApellido(respuesta.data.apellido);
         setCorreo(respuesta.data.correo);
@@ -28,7 +28,6 @@ export default function Micuenta (props) {
     }
 
     const actualizar= async(e)=>{
-        // const id=sessionStorage.getItem('idsocio');
         e.preventDefault();
       
         const socio={
