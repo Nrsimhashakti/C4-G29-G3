@@ -240,7 +240,7 @@ export default function HistorialCotizacion (){
                             </div>
                         </div>
 
-                        <table className="table table-responsive-lg table-striped">
+                        <table className="table table-responsive-lg table-striped" style={{fontSize:"16px"}}>
                             <thead className='thead-dark'>
                                 <tr>
                                     <th scope="col">#</th>

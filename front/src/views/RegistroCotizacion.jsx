@@ -49,7 +49,7 @@ export default function RegistroCotizacion(){
             })
             setTimeout(()=>{
                 setValidar(true);
-            },2000)
+            },1500)
         }
     }
 
@@ -132,7 +132,7 @@ export default function RegistroCotizacion(){
             <div className="regwrapper fadeInDown container">
                 <div className="user-details2 ">
                     <div className="input-resev" hidden={validar? true:false}>
-                        <h3 className="active fadeIn first" > VALIDAR SOCIO </h3>
+                        <h3 className="fadeIn first" > VALIDAR SOCIO </h3>
                         <form onSubmit={validarSocio}>
                             <Row xs="2"  className="validacion">
                                 <Col><input type="text" className="fadeIn first"  name="documento" placeholder="Documento"  onChange={(e) =>setDocumento(e.target.value)} required/></Col>
@@ -203,9 +203,14 @@ export default function RegistroCotizacion(){
                                 <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                             </Col>
                         </Row>
-                        <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
+                        <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="20" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
                         <input type="submit" className="fadeIn fourth" value="REGISTRAR COTIZACIÓN"/>
-                    </form>                    
+                        
+                    </form> 
+                    <Row xs="">
+                            <input  className="" onClick={e =>{e.preventDefault(); window.location.href='/historialcotizacion'}}  rows="6" cols="40" type="submit" value="Atrás"/>
+                        </Row> 
+                                      
  
                     </div>
                            
