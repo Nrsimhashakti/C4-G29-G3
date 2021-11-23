@@ -32,6 +32,7 @@ import HistorialCotizacion from "./views/HistorialCotizacion";
 
 import EditarHistorialSocio from "./views/EditarHistorialSocio";
 import RegistroSocio from "./views/RegistroSocio";
+import RegistroCotizacion from "./views/RegistroCotizacion";
 
 
 
@@ -87,6 +88,7 @@ function App() {
       <Route path='/historialsocio' exact component={HistorialSocio}/>
       <Route path='/historialcotizacion' exact component={HistorialCotizacion}/>
       <Route path='/registrosocio' exact component={RegistroSocio}/>
+      <Route path='/registrocotizacion' exact component={RegistroCotizacion}/>
 
 
 

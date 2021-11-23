@@ -212,27 +212,34 @@ export default function HistorialCotizacion (){
              <div className="historial">
                     <div className="card">
                         <div className="card-header">
-                            <h1>Historial de Cotizaciones</h1>
+                            <h3 style={titulo}>Historial de Cotizaciones</h3>
                         </div>
+                        <div class="input-group rounded">
+
                             <Row xs="2" className="opciones">
                                 <Col>
                                     <Row xs="2">
-                                        <Col>
+                                       
                                             <form>
-                                            <div className="input-group rounded">
+                                            <div className="input-group rounded" style={{width:"500px", marginLeft: "50px"}}>
                                                 <input type="search" className="form-control" placeholder="Documento" aria-label="Search"
                                                 aria-describedby="search-addon" onChange={(e)=>setDocBuscado(e.target.value)} required />
                                                 <span className="input-group-text border-0" id="search-addon" onClick={buscarCotizacion}>
                                                     <i className="fas fa-search"></i>
                                                 </span>
                                             </div>
+                                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todos los Socios"></input>
                                             </form>
-                                        </Col>
-                                        <Col className="mostrar-todas"><button className="todas" onClick={mostrarTodas}>Mostrar todas las cotizaciones</button></Col>
+                                        
                                     </Row>
                                 </Col>
-                                <Col className="crear"><Link className='link pull-right' to={'/registrocotizacion'}>Crear Cotizacion</Link></Col>
+
                             </Row>
+                            <div>
+                                <input style={boton} onClick={e =>{e.preventDefault(); window.location.href='/registrocotizacion'}} type="submit" value="Crear Cotizacion"/>
+                            </div>
+                        </div>
+
                         <table className="table table-responsive-lg table-striped">
                             <thead className='thead-dark'>
                                 <tr>
@@ -352,4 +359,21 @@ export default function HistorialCotizacion (){
         </div>
         </div>
     )
+}
+const boton={
+    fontSize: "20px",
+    borderRadius: "5px",
+    border: "1px solid #263555",
+    borderBottomWidth: "2px",
+    transition: "all 0.3s ease",
+    fontFamily: "Pathway Gothic One, sans-serif",
+    backgroundColor: " #263555",
+    marginLeft:"100px",
+    marginRight: "0px"
+}
+
+const titulo={
+    textAlign: "left",
+    fontSize: "55px"
+
 }

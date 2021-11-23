@@ -92,6 +92,11 @@ export default function HistorialSocio (){
 
         obtenerSocios();
     }
+    const titulo={
+        textAlign: "left",
+        fontSize: "55px"
+    
+    }
     
     return (
         <div>
@@ -99,7 +104,7 @@ export default function HistorialSocio (){
                 <div className="historial">
                     <div className="card">
                         <div className="card-header">
-                            <h1>Historial de Socios</h1>
+                            <h3 style={titulo}>Historial de Socios</h3>
                         </div>
                         <div class="input-group rounded">
 
@@ -107,23 +112,20 @@ export default function HistorialSocio (){
                                 <Col>
                                     <Row xs="2" >
                                         
-                                            <form style={{width:"600px"}}>
-                                            <div className="input-group rounded">
+                                            <form >
+                                            <div className="input-group rounded" style={{width:"500px", marginLeft: "50px"}}>
                                                 <input type="search" className="form-control"  placeholder="Documento" aria-label="Search"
                                                 aria-describedby="search-addon" onChange={(e)=>setDocBuscado(e.target.value)} required />
                                                 <span className="input-group-text border-0" id="search-addon" onClick={buscarSocio}>
                                                     <i className="fas fa-search"></i>
                                                 </span>
-
-                                            </div>
-                                          
-                                        
-                                            </form>
-                                          
+                                                
+                                            </div>            
+                                            <input onClick={mostrarTodos} style={boton} type="submit" value="Mostrar Todos los Socios"/>              
+                                            </form> 
                                     </Row>
                                 </Col>
                             </Row>
-                            <input onClick={mostrarTodos} style={boton} type="submit" value="Mostrar Todos los Socios"/>
 
                             <div>
                                 <input style={boton} onClick={e =>{e.preventDefault(); window.location.href='/registroSocio'}} type="submit" value="Crear Socio"/>
@@ -200,11 +202,13 @@ export default function HistorialSocio (){
 const boton={
     fontSize: "20px",
     borderRadius: "5px",
-    border: "1px solid rgb(33, 8, 124)",
+    border: "1px solid #263555",
     borderBottomWidth: "2px",
     transition: "all 0.3s ease",
     fontFamily: "Pathway Gothic One, sans-serif",
-    marginBottom: "80px",
-    backgroundColor: " rgb(33, 8, 124)"
+    backgroundColor: " #263555",
+    marginLeft:"100px",
+    marginRight: "0px"
+
 
 }

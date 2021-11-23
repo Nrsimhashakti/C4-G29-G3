@@ -5,7 +5,7 @@ import { Col, Row } from 'reactstrap'
 import '../assets/css/forms.css'
 
 
-export const RegistroCotizacion = () => {
+export default function RegistroCotizacion(){
 
     const[nombre, setNombre]=useState('')
     const[apellido, setApellido]=useState('')
