@@ -211,7 +211,7 @@ export const Inicio = () => {
                                 <div className="mb-3 text-center">Desarrolladora Web</div>
                                 <div>Ingeniera Electronica</div>
                                 <div>Medellin, Antioquia</div>
-                                <div>"Vive la vida de que recordarás"</div>
+                                <div>"Vive la vida que recordarás"</div>
                             </div>
                         </div>
                         

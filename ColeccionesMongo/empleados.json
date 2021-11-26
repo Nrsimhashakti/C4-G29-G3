@@ -2,10 +2,10 @@
   "_id": {
     "$oid": "6184ab31afc4b92446385f05"
   },
-  "nombre": "Camilo",
-  "apellido": "Vargas",
+  "nombre": "Diana",
+  "apellido": "Cataño",
   "telefono": 4841536461635,
-  "correo": "camilo@gmail.com",
+  "correo": "diana@gmail.com",
   "documento": 564879,
   "contraseña": "$2a$10$olHs0k8w5uPNE/58/XfqaecSm0KfBh8EBEI/um0mDg2zjBrR0LcsW",
   "rol": "Admin",
@@ -15,7 +15,7 @@
   "_id": {
     "$oid": "6184b720978bdc99466b4001"
   },
-  "nombre": "Marcela",
+  "nombre": "Laura",
   "apellido": "Castañeda",
   "telefono": 4841536461635,
   "correo": "lau@gmail.com",
@@ -28,10 +28,10 @@
   "_id": {
     "$oid": "6185f9a63ac97fae46186c9c"
   },
-  "nombre": "Laura ",
-  "apellido": "Perilla",
+  "nombre": "Felipe",
+  "apellido": "Muñoz",
   "telefono": 4841536461635,
-  "correo": "lau@gmail.com",
+  "correo": "felipe@gmail.com",
   "documento": 1019015290,
   "contraseña": "$2a$10$Fhi9r5HXp98h0XFcAHWESeGGbLzoRS7/fe1Bt/NBd3Xjrrbgjklc2",
   "rol": "Admin",
@@ -41,10 +41,10 @@
   "_id": {
     "$oid": "6185f9c83ac97fae46186c9f"
   },
-  "nombre": "Jorge",
-  "apellido": "Perilla",
+  "nombre": "Sebastian",
+  "apellido": "Barragan",
   "telefono": 4841536461635,
-  "correo": "lau@gmail.com",
+  "correo": "sebas@gmail.com",
   "documento": 101920569,
   "contraseña": "$2a$10$L15HPiQnQZ58ig2D36qtIOfnV9Dy.dTeiKYrOU2YTMRBPFDpDLiZy",
   "rol": "Admin",

@@ -12,6 +12,12 @@ export const Footer = () => {
                         <p>
                             Autopista Norte Km 14, Vía La Inmaculada
                         </p>
+                        <p>
+                            Tel: 676 00 70
+                        </p>
+                        <p>
+                            atencionalsocio@clublosarrayanes.com.co
+                        </p>
                     </MDBCol>
                     <MDBCol md="6">
                         <h5 className="title" style={{color: "white", fontSize: "30px"}}>Redes Sociales</h5>

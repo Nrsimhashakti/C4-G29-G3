@@ -34,3 +34,64 @@
     font-family: 'Pathway Gothic One', sans-serif;
     margin-bottom: 80px;
   }
+
+  .historial h1 {
+  color: #263555;
+  text-align: center;
+}
+
+.historial .opciones {
+  display: flex;
+  margin: 20px 0px 20px 0px;
+}
+
+.historial .mostrar-todas .todas {
+  padding: 10px;
+  font-size: 16px;
+  color: #263555;
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid #bdbdbd;
+}
+
+.historial .opciones .link {
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #263555;
+  border-radius: 2px;
+  border: 1px solid #263555;
+}
+
+.historial th {
+  font-size: 13px;
+  text-align: center;
+}
+
+.historial td {
+  font-size: 13px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.historial .acciones {
+  display: flex;
+  justify-content: center;
+}
+
+.historial .acciones .btn .btn-warning .btn-danger .mr-1 i {
+  color: white;
+  justify-content: center;
+  /* width: 1px; */
+}
+
+.historial .acciones .btn .btn-danger .mr-1 {
+  width: 1px;
+  height: 1px;
+  padding: 2px;
+}
+
+.historial .acciones i {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}

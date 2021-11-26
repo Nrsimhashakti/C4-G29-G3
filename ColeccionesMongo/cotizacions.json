@@ -5,17 +5,17 @@
   "nombre": "Laura",
   "apellido": "Castañeda",
   "documento": "1233888474",
-  "correo": "felipe@gmail.com",
+  "correo": "laur@gmail.com",
   "telefono": 4444555,
   "tipo_evento": "Matrimonio",
   "num_personas": 150,
-  "area": "Salon presidencial",
-  "fecha": "28-09-2021",
+  "area": "Salón gourmet",
+  "fecha": "2021-11-17",
   "hora": "19:00",
-  "comida": "Buffet",
-  "bebidas": "Coctel",
-  "grupo_musical": "serenata",
-  "adicionales": "ninguno",
+  "comida": "Bocadillos",
+  "bebidas": "Tequila",
+  "grupo_musical": "Serenata",
+  "adicionales": "Nada",
   "__v": 0
 },{
   "_id": {
@@ -29,26 +29,12 @@
   "tipo_evento": "Matrimonio",
   "num_personas": 150,
   "area": "Salon presidencial",
-  "fecha": "28-09-2021",
+  "fecha": "2021-11-17",
   "hora": "19:00",
   "comida": "Buffet",
-  "bebidas": "Coctel",
-  "grupo_musical": "serenata",
-  "adicionales": "ninguno",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6195c4007efe336039c7b63f"
-  },
-  "tipo_evento": "matrimonio",
-  "num_personas": 150,
-  "area": "Salón presidencial",
-  "fecha": "2021-11-19",
-  "hora": "22:14",
-  "comida": "on",
-  "bebidas": "on",
-  "grupo_musical": "on",
-  "adicionales": "decoracion",
+  "bebidas": "Wisky",
+  "grupo_musical": "Serenata",
+  "adicionales": "Nada",
   "__v": 0
 },{
   "_id": {
@@ -88,5 +74,24 @@
   "grupo_musical": "Serenata",
   "adicionales": "Decoraciones ",
   "socio": "6189b2fda6574dadef8fa075",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619c326576e9137c93f5062b"
+  },
+  "nombre": "Rosa ",
+  "apellido": "Suarez",
+  "documento": "1233888474",
+  "correo": "rosas23@gmail.com",
+  "telefono": 3115467758,
+  "tipo_evento": "Matrimonio",
+  "num_personas": 10,
+  "area": "Salón presidencial",
+  "fecha": "2021-12-01",
+  "hora": "19:18",
+  "comida": "Cathering",
+  "bebidas": "Tequila",
+  "grupo_musical": "Serenata",
+  "adicionales": "Nada",
   "__v": 0
 }]

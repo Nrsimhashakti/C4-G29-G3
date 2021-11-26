@@ -13,11 +13,11 @@ export default function EditarHistorialSocio(props) {
     const [hora, setHora]=useState('');
     const [comida, setComida]=useState('');
     const [bebidas, setBebidas]=useState('');
-    const [grupoMusical, setGrupoMusical]=useState('');
+    const [grupo_musical, setGrupoMusical]=useState('');
     const [adicionales, setAdicionales]=useState('');
-    const [estadoComida, setEstadoComida]=useState({buffet:false, servicio:false, bocadillos: false, cathering:false});
-    const [estadoBebidas, setEstadoBebidas]=useState({vino:false, wisky:false, tequila: false, agua:false});
-    const [estadoMusica, setEstadoMusica]=useState({dj:false, parranda:false, serenata: false});
+    const [estadoComida, setEstadoComida]=useState({buffet:true, servicio:true, bocadillos: true, cathering:true});
+    const [estadoBebidas, setEstadoBebidas]=useState({vino:true, wisky:true, tequila: true, agua:true});
+    const [estadoMusica, setEstadoMusica]=useState({dj:true, parranda:true, serenata: true});
 
 
     useEffect(()=>{
@@ -65,11 +65,11 @@ export default function EditarHistorialSocio(props) {
             setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
         }
 
-        if(grupoMusical==='DJ'){
+        if(grupo_musical==='DJ'){
             setEstadoMusica({dj:true, parranda:false, serenata: false});
-        }else if (grupoMusical==='Parranda Vallenata' && !estadoMusica.parranda) {
+        }else if (grupo_musical==='Parranda Vallenata' && !estadoMusica.parranda) {
             setEstadoMusica({dj:false, parranda:true, serenata: false});
-        }else if (grupoMusical==='Serenata' && !estadoMusica.serenata) {
+        }else if (grupo_musical==='Serenata' && !estadoMusica.serenata) {
             setEstadoMusica({dj:false, parranda:false, serenata: true});
         }else{
             setEstadoMusica({dj:false, parranda:false, serenata: false});
@@ -88,7 +88,7 @@ export default function EditarHistorialSocio(props) {
                 hora,
                 comida,
                 bebidas,
-                grupoMusical,
+                grupo_musical,
                 adicionales,
 
         }
@@ -218,7 +218,7 @@ export default function EditarHistorialSocio(props) {
 
                             <Col>
                                 <h2 className="fadeIn fourth">MÚSICA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" id="DJ" name="DJ" onChange={(e) =>onChangeMusica('dj')} checked={estadoMusica.dj} value={grupoMusical}/> DJ</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="DJ" name="DJ" onChange={(e) =>onChangeMusica('dj')} checked={estadoMusica.dj} /> DJ</label><br />
                                 <label className="fadeIn fourth"><input type="checkbox" id="Parranda Vallenata" name="Parranda Vallenata" onChange={(e) =>onChangeMusica('parranda')} checked={estadoMusica.parranda}/> Parranda Vallenata</label><br />
                                 <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                             </Col>

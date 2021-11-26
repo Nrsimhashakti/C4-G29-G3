@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import '../assets/css/historial.css';
 
 
-export default function HistorialResrvas (){
+export default function HistorialReservas (){
 
     const [reservas, setReservas]=useState([]);
     const [docBuscado, setDocBuscado]=useState();
@@ -25,7 +25,7 @@ export default function HistorialResrvas (){
     const [hora, setHora]=useState('');
     const [comida, setComida]=useState('');
     const [bebidas, setBebidas]=useState('');
-    const [grupoMusical, setGrupoMusical]=useState('');
+    const [grupo_musical, setGrupoMusical]=useState('');
     const [adicionales, setAdicionales]=useState('');
     const [estadoComida, setEstadoComida]=useState({buffet:false, servicio:false, bocadillos: false, cathering:false});
     const [estadoBebidas, setEstadoBebidas]=useState({vino:false, wisky:false, tequila: false, agua:false});
@@ -96,11 +96,11 @@ export default function HistorialResrvas (){
             setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
         }
 
-        if(grupoMusical==='DJ'){
+        if(grupo_musical==='DJ'){
             setEstadoMusica({dj:true, parranda:false, serenata: false});
-        }else if (grupoMusical==='Parranda Vallenata' && !estadoMusica.parranda) {
+        }else if (grupo_musical==='Parranda Vallenata') {
             setEstadoMusica({dj:false, parranda:true, serenata: false});
-        }else if (grupoMusical==='Serenata' && !estadoMusica.serenata) {
+        }else if (grupo_musical==='Serenata') {
             setEstadoMusica({dj:false, parranda:false, serenata: true});
         }else{
             setEstadoMusica({dj:false, parranda:false, serenata: false});
@@ -112,7 +112,7 @@ export default function HistorialResrvas (){
 
         const reserva={
             nombre, apellido, documento, correo, telefono, tipoEvento, numPersonas, 
-            area, fecha, hora, comida, bebidas, grupoMusical, adicionales
+            area, fecha, hora, comida, bebidas, grupo_musical, adicionales
         }
 
         // const token= sessionStorage.getItem('token')
@@ -128,7 +128,7 @@ export default function HistorialResrvas (){
             timer: 1500
         })
         setTimeout(()=>{
-            window.location.href='/historialreserva'
+            window.location.href='/historialreservas'
         },1500)
     }
 
@@ -214,7 +214,7 @@ export default function HistorialResrvas (){
                         <div className="card-header">
                             <h3 style={titulo}>Historial de Reservas</h3>
                         </div>
-                        <div class="input-group rounded">
+                        <div className="input-group rounded">
 
                             <Row xs="2" className="opciones">
                                 <Col>
@@ -281,8 +281,8 @@ export default function HistorialResrvas (){
                                             <td>{reserva.grupo_musical}</td>
                                             <td>{reserva.adicionales}</td>
                                             <td className="acciones"> 
-                                                <Link to="#" className="btn btn-warning mr-1" data-toggle="modal" data-target="#actualizarReserva" onClick={()=>obtenerInfo(reserva._id)} style={{"width":"30px", "height":"40px" }}><i class="fas fa-edit"></i></Link>
-                                                <button className='btn btn-danger mr-1' onClick={()=>eliminar(reserva._id)} style={{"width":"5px", "height":"40px" }}><i class="far fa-trash-alt"></i></button>                                                    
+                                                <Link to="#" className="btn btn-warning mr-1" data-toggle="modal" data-target="#actualizarReserva" onClick={()=>obtenerInfo(reserva._id)} style={{"width":"30px", "height":"40px" }}><i className="fas fa-edit"></i></Link>
+                                                <button className='btn btn-danger mr-1' onClick={()=>eliminar(reserva._id)} style={{"width":"5px", "height":"40px" }}><i className="far fa-trash-alt"></i></button>                                                    
                                             </td>                                            
                                         </tr>
                                     ))
@@ -306,14 +306,14 @@ export default function HistorialResrvas (){
                     <form onSubmit={actualizar}>
                         <Row xs="3" className="input-resev">
                             <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)} value={tipoEvento}>
-                                    <option selected>Seleccione evento:</option>
+                                    <option >Seleccione evento:</option>
                                     <option value="Matrimonio">Matrimonio</option>
                                     <option value="Grado">Grado</option>
                                     <option value="Cumpleaños">Cumpleaños</option>
                                     <option value="Reunión Empresarial">Reunión Empresarial</option>
                                 </select></Col>
                             <Col><select name="tipoEspacio" id="tipoEspacio" className="fadeIn third " onChange={(e) =>setArea(e.target.value)} value={area}>
-                                    <option selected>Seleccione Area:</option>
+                                    <option >Seleccione Area:</option>
                                     <option value="Salón presidencial">Salón presidencial</option>
                                     <option value="Salón gourmet">Salón gourmet</option>
                                     <option value="Piscina">Piscina</option>
@@ -330,27 +330,27 @@ export default function HistorialResrvas (){
                         <Row xs="3" className="input-resev">
                         <Col>
                                 <h2 className="fadeIn fourth">COMIDA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Buffet" onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} /> Buffet</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Servicio" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} /> Servicio Americano</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Bocadillos" onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} /> Bocadillos</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Cathering" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} /> Cathering</label><br />                            
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} /> Buffet</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} /> Servicio Americano</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} /> Bocadillos</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} /> Cathering</label><br />                            
                             </Col>
                             <Col>
                                 <h2 className="fadeIn fourth">BEBIDAS</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" id="vino" name="Vino Espumoso" onChange={(e) =>onChangeBebidas('vino')} checked={estadoBebidas.vino} /> Vino Espumoso</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="wisky" name="Wisky" onChange={(e) =>onChangeBebidas('wisky')} checked={estadoBebidas.wisky}/> Wisky</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="tequila" name="Tequila" onChange={(e) =>onChangeBebidas('tequila')} checked={estadoBebidas.tequila}/> Tequila</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="agua" name="Agua" onChange={(e) =>onChangeBebidas('agua')} checked={estadoBebidas.agua}/> Agua</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Vino Espumoso" onChange={(e) =>onChangeBebidas('vino')} checked={estadoBebidas.vino} /> Vino Espumoso</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Wisky" onChange={(e) =>onChangeBebidas('wisky')} checked={estadoBebidas.wisky}/> Wisky</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Tequila" onChange={(e) =>onChangeBebidas('tequila')} checked={estadoBebidas.tequila}/> Tequila</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Agua" onChange={(e) =>onChangeBebidas('agua')} checked={estadoBebidas.agua}/> Agua</label><br />
                             </Col>
 
                             <Col>
                                 <h2 className="fadeIn fourth">MÚSICA</h2>
                                 <label className="fadeIn fourth"><input type="checkbox" id="DJ" name="DJ" onChange={(e) =>onChangeMusica('dj')} checked={estadoMusica.dj}/> DJ</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="Parranda Vallenata" name="Parranda Vallenata" onChange={(e) =>onChangeMusica('parranda')} checked={estadoMusica.parranda}/> Parranda Vallenata</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" id="Parranda Vallenata" name="Parranda Vallenata" onChange={(e) =>onChangeMusica('parranda')} checked={estadoMusica.parranda} /> Parranda Vallenata</label><br />
                                 <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                             </Col>
                         </Row>
-                            <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
+                            <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)} value={adicionales}></textarea>
                             <input type="submit" className="fadeIn fourth" value="ACTUALIZAR"/>
                         </form>
                     </div>

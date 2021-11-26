@@ -41,7 +41,7 @@ export const NavBarSocio = () => {
                             <Link to="/inicio" onClick={()=>salir()} className="nav-link"><i className="fas fa-sign-out-alt"></i>SALIR</Link>
                         </li>
                         <li className="nav-item" style={{marginLeft: "100px"}}>
-                            <Link className="nav-link"> <i className='fas fa-user'></i> Bienvenid@ {sessionStorage.getItem('nombre')} </Link>
+                            <Link className="nav-link" to="#"> <i className='fas fa-user'></i> Bienvenid@ {sessionStorage.getItem('nombre')} </Link>
                         </li>
                         
                     </ul>

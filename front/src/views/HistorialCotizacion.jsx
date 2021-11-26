@@ -25,7 +25,7 @@ export default function HistorialCotizacion (){
     const [hora, setHora]=useState('');
     const [comida, setComida]=useState('');
     const [bebidas, setBebidas]=useState('');
-    const [grupoMusical, setGrupoMusical]=useState('');
+    const [grupo_musical, setGrupoMusical]=useState('');
     const [adicionales, setAdicionales]=useState('');
     const [estadoComida, setEstadoComida]=useState({buffet:false, servicio:false, bocadillos: false, cathering:false});
     const [estadoBebidas, setEstadoBebidas]=useState({vino:false, wisky:false, tequila: false, agua:false});
@@ -96,11 +96,11 @@ export default function HistorialCotizacion (){
             setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
         }
 
-        if(grupoMusical==='DJ'){
+        if(grupo_musical==='DJ'){
             setEstadoMusica({dj:true, parranda:false, serenata: false});
-        }else if (grupoMusical==='Parranda Vallenata' && !estadoMusica.parranda) {
+        }else if (grupo_musical==='Parranda Vallenata' && !estadoMusica.parranda) {
             setEstadoMusica({dj:false, parranda:true, serenata: false});
-        }else if (grupoMusical==='Serenata' && !estadoMusica.serenata) {
+        }else if (grupo_musical==='Serenata' && !estadoMusica.serenata) {
             setEstadoMusica({dj:false, parranda:false, serenata: true});
         }else{
             setEstadoMusica({dj:false, parranda:false, serenata: false});
@@ -112,7 +112,7 @@ export default function HistorialCotizacion (){
 
         const cotizacion={
             nombre, apellido, documento, correo, telefono, tipoEvento, numPersonas, 
-            area, fecha, hora, comida, bebidas, grupoMusical, adicionales
+            area, fecha, hora, comida, bebidas, grupo_musical, adicionales
         }
 
         // const token= sessionStorage.getItem('token')
@@ -228,7 +228,7 @@ export default function HistorialCotizacion (){
                                                     <i className="fas fa-search"></i>
                                                 </span>
                                             </div>
-                                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todos los Socios"></input>
+                                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todos las Cotizaciones"></input>
                                             </form>
                                         
                                     </Row>
@@ -281,7 +281,7 @@ export default function HistorialCotizacion (){
                                             <td>{cotizacion.grupo_musical}</td>
                                             <td>{cotizacion.adicionales}</td>
                                             <td className="acciones"> 
-                                                <Link to="#" className="btn btn-warning mr-1" data-toggle="modal" data-target="#actualizarCotizacion" onClick={()=>obtenerInfo(cotizacion._id)} style={{"width":"30px", "height":"40px" }}><i class="fas fa-edit"></i></Link>
+                                                <Link to="/#" className="btn btn-warning mr-1" data-toggle="modal" data-target="#actualizarCotizacion" onClick={()=>obtenerInfo(cotizacion._id)} style={{"width":"30px", "height":"40px" }}><i class="fas fa-edit"></i></Link>
                                                 <button className='btn btn-danger mr-1' onClick={()=>eliminar(cotizacion._id)} style={{"width":"5px", "height":"40px" }}><i class="far fa-trash-alt"></i></button>                                                    
                                             </td>                                            
                                         </tr>
@@ -330,10 +330,10 @@ export default function HistorialCotizacion (){
                         <Row xs="3" className="input-resev">
                         <Col>
                                 <h2 className="fadeIn fourth">COMIDA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Buffet" onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} /> Buffet</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Servicio" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} /> Servicio Americano</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Bocadillos" onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} /> Bocadillos</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" value="Cathering" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} /> Cathering</label><br />                            
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida"  onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} value={comida} /> Buffet</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} value={comida}  /> Servicio Americano</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida"  onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} value={comida}  /> Bocadillos</label><br />
+                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} value={comida}  /> Cathering</label><br />                            
                             </Col>
                             <Col>
                                 <h2 className="fadeIn fourth">BEBIDAS</h2>
@@ -350,7 +350,7 @@ export default function HistorialCotizacion (){
                                 <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                             </Col>
                         </Row>
-                            <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
+                            <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)} value={adicionales}></textarea>
                             <input type="submit" className="fadeIn fourth" value="ACTUALIZAR"/>
                         </form>
                     </div>
