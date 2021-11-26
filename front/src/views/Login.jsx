@@ -34,7 +34,7 @@ export const Login = () => {
             sessionStorage.setItem('nombre',nombre)
             sessionStorage.setItem('idsocio', idsocio)
 
-            window.location.href='/menusocio'
+            window.location.href='/historial'
           
 
         
