@@ -15,8 +15,11 @@ export default function RegistroSocio (){
 
     const registroSocio=async(e)=>{
         e.preventDefault();
-        const usuario={documento,nombre, apellido, correo, telefono,contraseña}
-        const respuesta = await Axios.post('/socio/nuevo-socio', usuario);
+        const usuario={documento,nombre, apellido, correo, telefono,contraseña};
+        const token= sessionStorage.getItem('token');
+        const respuesta = await Axios.post('/socio/nuevo-socio', usuario,{
+            headers:{'autorizacion':token} 
+        });
 
         const mensaje = respuesta.data.mensaje
         
