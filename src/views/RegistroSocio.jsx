@@ -4,9 +4,6 @@ import Swal from 'sweetalert2'
 import { Col, Row } from 'reactstrap'
 
 
-
-
-
 export default function RegistroSocio (){
     const[nombre, setNombre]=useState('')
     const[apellido, setApellido]=useState('')
@@ -22,18 +19,15 @@ export default function RegistroSocio (){
         const respuesta = await Axios.post('/socio/nuevo-socio', usuario);
 
         const mensaje = respuesta.data.mensaje
-
-        if(mensaje!=='Bienvenido'){
-            Swal.fire({
-                icon:'error',
-                title:mensaje,
-                showConfirmButton:false,
-                
-            })
-        }
         
+        Swal.fire({
+            icon: 'success',
+            title: mensaje,
+            showConfirmButton: false,
+            timer: 1500
+        })
+        e.target.reset();
     }
-
     
     return (
         <div>

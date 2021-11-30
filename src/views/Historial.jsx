@@ -14,8 +14,11 @@ export default function Historial () {
     
 
      const obtenerReservas= async()=>{
-            const id=sessionStorage.getItem('idsocio')
-            const respuesta= await Axios.get('/reserva/listar-reservas-socio/' +id)
+            const id=sessionStorage.getItem('idsocio');
+            const token= sessionStorage.getItem('token');
+            const respuesta= await Axios.get('/reserva/listar-reservas-socio/' +id,{
+                headers:{'autorizacion':token} 
+            });
             console.log(respuesta.data)
             setReservas(respuesta.data)
         }

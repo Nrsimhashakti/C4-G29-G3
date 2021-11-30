@@ -22,7 +22,7 @@ export const Login = () => {
                 icon:'error',
                 title:mensaje,
                 showConfirmButton:false,
-                
+                timer: 1500
             })
         }
         else{
@@ -34,9 +34,7 @@ export const Login = () => {
             sessionStorage.setItem('nombre',nombre)
             sessionStorage.setItem('idsocio', idsocio)
 
-            window.location.href='/menusocio'
-          
-
+            window.location.href='/historial'
         
             Swal.fire({
                 icon:'success',
@@ -44,11 +42,7 @@ export const Login = () => {
                 showConfirmButton:false,
                 timer:1500
             })
-      
-           
-            
         }
-
     }
 
     return (

@@ -22,6 +22,7 @@ export const LoginAdmin = () => {
                 icon:'error',
                 title:mensaje,
                 showConfirmButton:false,
+                timer:1500
             })
         }
         else{
@@ -33,7 +34,7 @@ export const LoginAdmin = () => {
             sessionStorage.setItem('nombre',nombre)
             sessionStorage.setItem('idadmin', idadmin)
             
-            window.location.href='/menuadmin'
+            window.location.href='/historialreservas'
 
             Swal.fire({
                 icon:'success',

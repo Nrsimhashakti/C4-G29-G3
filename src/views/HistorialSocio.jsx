@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import Swal from 'sweetalert2';
 import { Col, Row } from 'reactstrap';
@@ -27,7 +26,10 @@ export default function HistorialSocio (){
 
      const obtenerSocios = async() => {
 
-        const respuesta= await Axios.get('/socio/listar-socios')
+        const token= sessionStorage.getItem('token');
+        const respuesta= await Axios.get('/socio/listar-socios',{
+            headers:{'autorizacion':token} 
+        });
         setSocios(respuesta.data)
         setRenderizar(respuesta.data);
     }
@@ -45,7 +47,10 @@ export default function HistorialSocio (){
 
         console.log(id);
         setId(id);
-        const respuesta= await Axios.get('/socio/listar-socioid/' + id);
+        const token= sessionStorage.getItem('token');
+        const respuesta= await Axios.get('/socio/listar-socioid/' + id,{
+            headers:{'autorizacion':token} 
+        });
         
         setNombre(respuesta.data.nombre);
         setApellido(respuesta.data.apellido);
@@ -61,8 +66,10 @@ export default function HistorialSocio (){
 
         const socio={nombre, apellido, documento, correo, telefono};
 
-        // const token= sessionStorage.getItem('token')
-        const respuesta=await Axios.put('/socio/actualizar-socio/' + id, socio)
+        const token= sessionStorage.getItem('token');
+        const respuesta=await Axios.put('/socio/actualizar-socio/' + id, socio,{
+            headers:{'autorizacion':token} 
+        });
 
         const mensaje= respuesta.data.mensaje
 
@@ -78,8 +85,10 @@ export default function HistorialSocio (){
     }
 
     const eliminar= async(id)=>{
-        // const token= sessionStorage.getItem('token')
-        const respuesta= await Axios.delete('/socio/eliminar-socio/'+id)
+        const token= sessionStorage.getItem('token');
+        const respuesta= await Axios.delete('/socio/eliminar-socio/'+id,{
+            headers:{'autorizacion':token} 
+        });
 
         const mensaje=respuesta.data.mensaje
 
@@ -99,40 +108,31 @@ export default function HistorialSocio (){
     }
     
     return (
-        <div>
-        <section>
-                <div className="historial">
+        <div className="historial">
+            <section>
+                <div >
                     <div className="card">
                         <div className="card-header">
                             <h3 style={titulo}>Historial de Socios</h3>
                         </div>
-                        <div class="input-group rounded">
-
-                        <Row xs="2" className="">
-                                <Col>
-                                    <Row xs="2" >
+                        <div className="opciones">
+                            <div className="buscar">
+                                <form>
+                                    <div className="input-group rounded">
                                         
-                                            <form >
-                                            <div className="input-group rounded" style={{width:"500px", marginLeft: "50px"}}>
-                                                <input type="search" className="form-control"  placeholder="Documento" aria-label="Search"
-                                                aria-describedby="search-addon" onChange={(e)=>setDocBuscado(e.target.value)} required />
-                                                <span className="input-group-text border-0" id="search-addon" onClick={buscarSocio}>
-                                                    <i className="fas fa-search"></i>
-                                                </span>
-                                                
-                                            </div>            
-                                            <input onClick={mostrarTodos} style={boton} type="submit" value="Mostrar Todos los Socios"/>              
-                                            </form> 
-                                    </Row>
-                                </Col>
-                            </Row>
-
-                            <div>
-                                <input style={boton} onClick={e =>{e.preventDefault(); window.location.href='/registroSocio'}} type="submit" value="Crear Socio"/>
+                                        <input type="search" className="form-control" placeholder="Documento" aria-label="Search"
+                                        aria-describedby="search-addon" onChange={(e)=>setDocBuscado(e.target.value)} required />
+                                        <span className="input-group-text border-0" id="search-addon" onClick={buscarSocio}>
+                                            <i className="fas fa-search"></i>
+                                        </span>
+                                    </div>
+                                </form>
+                                <div className="todas"><input onClick={mostrarTodos} type="submit" value="Mostrar todos los socios"/></div>
                             </div>
-
+                            <div className="crear">
+                                <input style={boton}  onClick={e =>{e.preventDefault(); window.location.href='/registroSocio'}} type="submit" value="Crear Socio"/>
+                            </div>
                         </div>
-
                         <table className="table table-responsive-lg table-striped">
                             <thead className='thead-dark'>
                                 <tr>
@@ -156,9 +156,12 @@ export default function HistorialSocio (){
                                             <td>{socio.documento}</td>
                                             <td>{socio.correo}</td>
                                             <td>{socio.telefono}</td>                                    
-                                            <td> 
-                                                <Link to="#" className="btn btn-warning mr-1" data-toggle="modal" data-target="#actualizarCotizacion" onClick={()=>obtenerInfo(socio._id)}>Editar</Link>
-                                                <button className='btn btn-danger mr-1' onClick={()=>eliminar(socio._id)}>Eliminar</button>                                                    
+                                            <td className="accionesSocio"> 
+                                                <button className="editar" data-toggle="modal" data-target="#actualizarSocio" onClick={()=>obtenerInfo(socio._id)}>Editar</button>
+                                                <button className="eliminar" onClick={()=>eliminar(socio._id)}>Eliminar</button>                                                    
+                                                
+                                                {/* <Link to="#" className="btn btn-warning mr-1" data-toggle="modal" data-target="#actualizarCotizacion" onClick={()=>obtenerInfo(socio._id)}>Editar</Link>
+                                                <button className='btn btn-danger mr-1' onClick={()=>eliminar(socio._id)}>Eliminar</button>                                                     */}
                                             </td>
                                         </tr>
                                     ))
@@ -169,7 +172,7 @@ export default function HistorialSocio (){
                 </div>
         </section>
 
-        <div className="modal fade" id='actualizarCotizacion'>
+        <div className="modal fade" id='actualizarSocio'>
             <div className="modal-dialog modal-lg regwrapper fadeInDown">
             <div className="modal-content user-details2">
                 <div className="modal-body">

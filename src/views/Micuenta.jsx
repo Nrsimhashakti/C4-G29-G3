@@ -18,9 +18,9 @@ export default function Micuenta (props) {
     }, [])
 
     const obtenerDatos = async()=>{
-        const idsocio=sessionStorage.getItem('idsocio');
-        setId('idsocio');
-        const respuesta= await Axios.get('/socio/listar-socioid/'+idsocio);
+        const idSocio=sessionStorage.getItem('idsocio');
+        setId(idSocio);
+        const respuesta= await Axios.get('/socio/listar-socioid/'+idSocio);
         setNombre(respuesta.data.nombre);
         setApellido(respuesta.data.apellido);
         setCorreo(respuesta.data.correo);
@@ -36,8 +36,10 @@ export default function Micuenta (props) {
             correo,
             telefono
         }
-
-        const respuesta= await Axios.put('/socio/actualizar-socio/'+id,socio)
+        const token= sessionStorage.getItem('token');
+        const respuesta= await Axios.put('/socio/actualizar-socio/'+id,socio,{
+            headers:{'autorizacion':token} 
+        });
         const mensaje=respuesta.data.mensaje
         
         Swal.fire({
@@ -52,7 +54,7 @@ export default function Micuenta (props) {
       
         <div className="regwrapper fadeInDown container">
             <Row xs="">
-                <input  className="input-resev1"  rows="8" cols="40" onClick={e =>{e.preventDefault(); window.location.href='/historial'}}  type="submit" value="Mis reservas"/>
+                <input  className="input-resev1"  rows="8" cols="40" type="submit" value="Mis reservas"/>
             </Row>
             <h3>Datos personales</h3>
             <p>Actualiza tu informacion personal </p>

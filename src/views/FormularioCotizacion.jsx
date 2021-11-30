@@ -24,7 +24,10 @@ export default function FormularioCotizacion () {
     const cotizar=async(e)=>{
         e.preventDefault();
         const idSocio=sessionStorage.getItem('idsocio');
-        const respuestaSocio= await Axios.get('/socio/listar-socioid/'+idSocio);
+        const token= sessionStorage.getItem('token');
+        const respuestaSocio= await Axios.get('/socio/listar-socioid/'+idSocio,{
+            headers:{'autorizacion':token}
+         });
         const nombre=respuestaSocio.data.nombre;
         const apellido=respuestaSocio.data.apellido;
         const documento=respuestaSocio.data.documento;
@@ -47,7 +50,9 @@ export default function FormularioCotizacion () {
             socio:sessionStorage.getItem('idsocio')
         }
 
-            const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', cotizacion);
+            const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', cotizacion,{
+                headers:{'autorizacion':token}
+            });
 
             const mensaje = respuesta.data.mensaje
 
@@ -55,7 +60,9 @@ export default function FormularioCotizacion () {
                 icon:'success',
                 title:mensaje,
                 showConfirmButton:false,
+                timer:1500
             })
+            e.target.reset();
     }
 
     const onChangeComida=(tipo)=>{

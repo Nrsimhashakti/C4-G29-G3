@@ -24,7 +24,10 @@ export default function  FormularioReserva () {
     const reservar=async(e)=>{
         e.preventDefault();
         const idSocio=sessionStorage.getItem('idsocio');
-        const respuestaSocio= await Axios.get('/socio/listar-socioid/'+idSocio);
+        const token= sessionStorage.getItem('token');
+        const respuestaSocio= await Axios.get('/socio/listar-socioid/'+idSocio,{
+            headers:{'autorizacion':token} 
+        });
         const nombre=respuestaSocio.data.nombre;
         const apellido=respuestaSocio.data.apellido;
         const documento=respuestaSocio.data.documento;
@@ -48,7 +51,9 @@ export default function  FormularioReserva () {
 
         }
 
-            const respuesta = await Axios.post('/reserva/nueva-reserva', reserva);
+            const respuesta = await Axios.post('/reserva/nueva-reserva', reserva,{
+                headers:{'autorizacion':token} 
+            });
 
             const mensaje = respuesta.data.mensaje
 
@@ -56,7 +61,9 @@ export default function  FormularioReserva () {
                 icon:'success',
                 title:mensaje,
                 showConfirmButton:false,
+                timer: 1500
             })
+            e.target.reset();
     }
 
     const onChangeComida=(tipo)=>{
@@ -121,7 +128,7 @@ export default function  FormularioReserva () {
 
             <div className="regwrapper fadeInDown container">
                 <div className="user-details2 ">
-                    <h3 className="active fadeIn first"> RESERVA AQUÍ  </h3>
+                    <h3 className="active fadeIn first"> RESERVA AQUÍ {sessionStorage.getItem('nombre')} </h3>
                            
                     <form onSubmit={reservar}>
                         <Row xs="3" className="input-resev">

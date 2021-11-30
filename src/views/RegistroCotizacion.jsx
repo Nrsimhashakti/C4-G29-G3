@@ -28,7 +28,10 @@ export default function RegistroCotizacion(){
 
     const validarSocio = async(e) => {
         e.preventDefault();
-        const respuesta= await Axios.get('/socio/listar-socio/'+documento);
+        const token= sessionStorage.getItem('token');
+        const respuesta= await Axios.get('/socio/listar-socio/'+documento,{
+            headers:{'autorizacion':token} 
+        });
 
         if (respuesta.data.documento) {
 
@@ -41,15 +44,8 @@ export default function RegistroCotizacion(){
             console.log("nombre: "+nombre);
             const mensaje = respuesta.data.mensaje
 
-            Swal.fire({
-                icon: 'success',
-                title: mensaje,
-                showConfirmButton: false,
-                timer: 1500
-            })
-            setTimeout(()=>{
-                setValidar(true);
-            },1500)
+            setValidar(true);
+            e.target.reset();
         }
     }
 
@@ -58,16 +54,20 @@ export default function RegistroCotizacion(){
         const cotizacion={
             nombre, apellido, documento, correo, telefono, tipo_evento, num_personas,
             area, fecha, hora, comida, bebidas, grupo_musical, adicionales}
+        const token= sessionStorage.getItem('token');
+        const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', cotizacion,{
+            headers:{'autorizacion':token} 
+        });
 
-            const respuesta = await Axios.post('/cotizacion/nueva-cotizacion', cotizacion);
+        const mensaje = respuesta.data.mensaje
 
-            const mensaje = respuesta.data.mensaje
-
-            Swal.fire({
-                icon:'success',
-                title:mensaje,
-                showConfirmButton:false,
-            })
+        Swal.fire({
+            icon:'success',
+            title:mensaje,
+            showConfirmButton:false,
+            timer:1500
+        })
+        e.target.reset();
     }
 
     const onChangeComida=(tipo)=>{
@@ -134,10 +134,11 @@ export default function RegistroCotizacion(){
                     <div className="input-resev" hidden={validar? true:false}>
                         <h3 className="fadeIn first" > VALIDAR SOCIO </h3>
                         <form onSubmit={validarSocio}>
-                            <Row xs="2"  className="validacion">
-                                <Col><input type="text" className="fadeIn first"  name="documento" placeholder="Documento"  onChange={(e) =>setDocumento(e.target.value)} required/></Col>
-                                <Col><input type="submit" className="fadeIn first" value="VALIDAR SOCIO"/></Col>
-                            </Row>
+                            <div  className="validacion">
+                                <div><input type="text" className="fadeIn first"  name="documento" placeholder="Documento"  onChange={(e) =>setDocumento(e.target.value)} required/></div>
+                                <div><input type="submit" className="fadeIn first" value="VALIDAR SOCIO"/></div>
+                            </div>
+                            <input  className="" onClick={e =>{e.preventDefault(); window.location.href='/historialcotizacion'}} type="submit" value="VOLVER A HISTORIAL COTIZACIÓN" style={{"width":"90%"}}/>
                         </form>
                     </div>
                     <div className="input-resev" hidden={validar? false:true}>
@@ -145,16 +146,16 @@ export default function RegistroCotizacion(){
 
                     {/* <!-- Formulario de Registro de Cotización --> */}
                     <form onSubmit={cotizar}>
-                        <Row xs="2" className="info">
-                            <p>Documento: {documento}</p>
+                        <Row xs="2" className="info" style={{"textAlign":"left"}}>
+                        <Col><p className="fadeIn first" >Documento: {documento}</p></Col><Col></Col>
                         </Row>
                         <Row xs="2" className="info">
-                            <Col><p>Nombre: {nombre}</p></Col>
-                            <Col><p>Apellido: {apellido}</p></Col>
+                            <Col><p className="fadeIn first">Nombre: {nombre}</p></Col>
+                            <Col><p className="fadeIn first">Apellido: {apellido}</p></Col>
                         </Row>
                         <Row xs="2" className="info">
-                            <Col><p>Teléfono: {telefono}</p></Col>
-                            <Col><p>Correo: {correo}</p></Col>                                
+                            <Col><p className="fadeIn first">Teléfono: {telefono}</p></Col>
+                            <Col><p className="fadeIn first">Correo: {correo}</p></Col>                                
                         </Row>
                         <Row xs="3" className="input-resev">
                             <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)}>
@@ -203,18 +204,17 @@ export default function RegistroCotizacion(){
                                 <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
                             </Col>
                         </Row>
-                        <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="20" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
-                        <input type="submit" className="fadeIn fourth" value="REGISTRAR COTIZACIÓN"/>
-                        
-                    </form> 
-                    <Row xs="">
-                            <input  className="" onClick={e =>{e.preventDefault(); window.location.href='/historialcotizacion'}}  rows="6" cols="40" type="submit" value="Atrás"/>
+                        <textarea className="fadeIn fourth input-resev" name="textarea" rows="6" cols="20" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)}></textarea>
+                        <Row xs="2">
+                            <Col><input type="submit" className="fadeIn fourth" value="REGISTRAR COTIZACIÓN"/></Col>
+                            <Col><input  className="fadeIn fourth" onClick={e =>{e.preventDefault(); setValidar(false);}} type="submit" value="REGISTRAR COTIZACIÓN DE OTRO SOCIO"/></Col>
                         </Row> 
-                                      
- 
+                        <Row xs="1">
+                            <input  className="fadeIn fourth" onClick={e =>{e.preventDefault(); window.location.href='/historialcotizacion'}}  rows="auto" cols="auto" type="submit" value="VOLVER A HISTORIAL DE COTIZACIÓN"/>
+                        </Row>                     
+                        </form> 
                     </div>
-                           
-               </div>
+                </div>
             </div>
         </div>
    )
