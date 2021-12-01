@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const uri ='mongodb://localhost:27017/arrayanes'
+// const uri ='mongodb://localhost:27017/arrayanes'
+const uri ='mongodb+srv://Lau21:Laura123@arrayanes.bcpgd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const options = {useNewUrlParser: true, useUnifiedTopology: true}; 
 
