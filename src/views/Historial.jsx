@@ -77,7 +77,6 @@ export default function Historial () {
 
 
 
-
                                             </tr>
                                         
 
