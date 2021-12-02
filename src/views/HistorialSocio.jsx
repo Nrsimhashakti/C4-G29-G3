@@ -163,7 +163,7 @@ export default function HistorialSocio (){
                                             <td>{socio.correo}</td>
                                             <td>{socio.telefono}</td>                                    
                                             <td className="accionesSocio"> 
-                                                <button className="editar" data-toggle="modal" data-target="#actualizarSocio" onClick={()=>obtenerInfo(socio._id)}>Editar</button>
+                                                <button className="editar" data-toggle="modal" data-target="#actualizarSocio" onClick={()=>obtenerInfo(socio._id)}><i className="fas fa-edit" ></i></button>
                                                 <button className="eliminar" onClick={()=>eliminar(socio._id)}>Eliminar</button>                                                    
                                                 
                                                                                              
