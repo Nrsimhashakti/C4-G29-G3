@@ -72,7 +72,7 @@ export default function Historial () {
                                                 <td>{reserva.adicionales}</td>
                                                 
                                                 <td> 
-                                                    <Link className='btn btn-warning mr-1' to={'/editar/'+reserva._id}>Editar</Link>
+                                                    <Link className='btn btn-warning mr-1'  to={'/editar/'+reserva._id}><i className="fas fa-edit"></i></Link>
                                                 </td>
 
 
