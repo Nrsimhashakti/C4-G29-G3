@@ -26,10 +26,7 @@ export default function HistorialReservas (){
     const [bebidas, setBebidas]=useState('');
     const [grupo_musical, setGrupoMusical]=useState('');
     const [adicionales, setAdicionales]=useState('');
-    const [estadoComida, setEstadoComida]=useState({buffet:false, servicio:false, bocadillos: false, cathering:false});
-    const [estadoBebidas, setEstadoBebidas]=useState({vino:false, wisky:false, tequila: false, agua:false});
-    const [estadoMusica, setEstadoMusica]=useState({dj:false, parranda:false, serenata: false});
-
+   
 
     useEffect(()=>{
         obtenerReservas();
@@ -71,39 +68,7 @@ export default function HistorialReservas (){
         setGrupoMusical(respuesta.data.grupo_musical);
         setAdicionales(respuesta.data.adicionales);
 
-        if(comida==='Buffet'){
-            setEstadoComida({buffet:true, servicio:false, bocadillos:false, cathering:false});
-        }else if (comida==='Servicio Americano') {
-            setEstadoComida({buffet:false, servicio:true, bocadillos:false, cathering:false});
-        }else if (comida==='Bocadillos') {
-            setEstadoComida({buffet:false, servicio:false, bocadillos:true, cathering:false});
-        }else if (comida==='Cathering') {
-            setEstadoComida({buffet:false, servicio:false, bocadillos:false, cathering:true});
-        }else{
-            setEstadoComida({buffet:false, servicio:false, bocadillos:false, cathering:false});
-        }
-
-        if(bebidas==='Vino Espumoso'){
-            setEstadoBebidas({vino:true, wisky:false, tequila: false, agua:false});
-        }else if (bebidas==='Wisky') {
-            setEstadoBebidas({vino:false, wisky:true, tequila: false, agua:false});
-        }else if (bebidas==='Tequila') {
-            setEstadoBebidas({vino:false, wisky:false, tequila: true, agua:false});
-        }else if (bebidas==='Agua') {
-            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:true});
-        }else{
-            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
-        }
-
-        if(grupo_musical==='DJ'){
-            setEstadoMusica({dj:true, parranda:false, serenata: false});
-        }else if (grupo_musical==='Parranda Vallenata') {
-            setEstadoMusica({dj:false, parranda:true, serenata: false});
-        }else if (grupo_musical==='Serenata') {
-            setEstadoMusica({dj:false, parranda:false, serenata: true});
-        }else{
-            setEstadoMusica({dj:false, parranda:false, serenata: false});
-        }
+        
     }
 
     const actualizar = async(e)=>{
@@ -147,63 +112,7 @@ export default function HistorialReservas (){
               obtenerReservas()
     }
 
-    const onChangeComida=(tipo)=>{
-
-        if(tipo==='buffet' && !estadoComida.buffet){
-            setEstadoComida({buffet:true, servicio:false, bocadillos: false, cathering:false});
-            setComida('Buffet');
-        }else if (tipo==='servicio' && !estadoComida.servicio) {
-            setEstadoComida({buffet:false, servicio:true, bocadillos: false, cathering:false});
-            setComida('Servicio Americano');
-        }else if (tipo==='bocadillos' && !estadoComida.bocadillos) {
-            setEstadoComida({buffet:false, servicio:false, bocadillos: true, cathering:false});
-            setComida('Bocadillos');
-        }else if (tipo==='cathering' && !estadoComida.cathering) {
-            setEstadoComida({buffet:false, servicio:false, bocadillos: false, cathering:true});
-            setComida('Cathering');
-        }else{
-            setEstadoComida({buffet:false, servicio:false, bocadillos: false, cathering:false});
-            setComida('');
-        }
-    }
-
-    const onChangeBebidas=(tipo)=>{
-
-        if(tipo==='vino' && !estadoBebidas.vino){
-            setEstadoBebidas({vino:true, wisky:false, tequila: false, agua:false});
-            setBebidas('Vino Espumoso');
-        }else if (tipo==='wisky' && !estadoBebidas.wisky) {
-            setEstadoBebidas({vino:false, wisky:true, tequila: false, agua:false});
-            setBebidas('Wisky');
-        }else if (tipo==='tequila' && !estadoBebidas.tequila) {
-            setEstadoBebidas({vino:false, wisky:false, tequila: true, agua:false});
-            setBebidas('Tequila');
-        }else if (tipo==='agua' && !estadoBebidas.agua) {
-            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:true});
-            setBebidas('Agua');
-        }else{
-            setEstadoBebidas({vino:false, wisky:false, tequila: false, agua:false});
-            setBebidas('');
-        }
-    }
-
-    const onChangeMusica=(tipo)=>{
-
-        if(tipo==='dj' && !estadoMusica.dj){
-            setEstadoMusica({dj:true, parranda:false, serenata: false});
-            setGrupoMusical('DJ');
-        }else if (tipo==='parranda' && !estadoMusica.parranda) {
-            setEstadoMusica({dj:false, parranda:true, serenata: false});
-            setGrupoMusical('Parranda Vallenata');
-        }else if (tipo==='serenata' && !estadoMusica.serenata) {
-            setEstadoMusica({dj:false, parranda:false, serenata: true});
-            setGrupoMusical('Serenata');
-        }else{
-            setEstadoMusica({dj:false, parranda:false, serenata: false});
-            setGrupoMusical('');
-        }
-    }
-
+    
     
     return (
         <div className="historial">
@@ -211,7 +120,7 @@ export default function HistorialReservas (){
              <div>
                     <div className="card">
                         <div className="card-header">
-                            <h3 style={titulo}>Historial de Reservas</h3>
+                            <h3 >Historial de Reservas</h3>
                         </div>
                         <div className="input-group rounded">
 
@@ -327,26 +236,33 @@ export default function HistorialReservas (){
                             <Col><input type="time" className="fadeIn fourth" name="login" placeholder="Hora" onChange={(e) =>setHora(e.target.value)} value={hora} required/></Col>
                         </Row>
                         <Row xs="3" className="input-resev">
-                        <Col>
-                                <h2 className="fadeIn fourth">COMIDA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('buffet')} checked={estadoComida.buffet} /> Buffet</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('servicio')} checked={estadoComida.servicio} /> Servicio Americano</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('bocadillos')} checked={estadoComida.bocadillos} /> Bocadillos</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Comida" onChange={(e) =>onChangeComida('cathering')} checked={estadoComida.cathering} /> Cathering</label><br />                            
-                            </Col>
                             <Col>
-                                <h2 className="fadeIn fourth">BEBIDAS</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" name="Vino Espumoso" onChange={(e) =>onChangeBebidas('vino')} checked={estadoBebidas.vino} /> Vino Espumoso</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Wisky" onChange={(e) =>onChangeBebidas('wisky')} checked={estadoBebidas.wisky}/> Wisky</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Tequila" onChange={(e) =>onChangeBebidas('tequila')} checked={estadoBebidas.tequila}/> Tequila</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" name="Agua" onChange={(e) =>onChangeBebidas('agua')} checked={estadoBebidas.agua}/> Agua</label><br />
+                                <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setComida(e.target.value)} value={comida}>
+                                <option defaultValue>Seleccione Comida:</option>
+                                    <option>Buffet</option>
+                                    <option>Servicio Americano</option>
+                                    <option>Bocadillos</option>
+                                    <option>Cathering</option>
+                                </select>
+                               </Col>
+                            <Col>
+                                <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setBebidas(e.target.value)} value={bebidas}>
+                                    <option defaultValue>Seleccione Bebida:</option>
+                                    <option>Vino Espumoso</option>
+                                    <option>Whisky</option>
+                                    <option>Tequila</option>
+                                    <option>Agua</option>
+                                </select>
                             </Col>
 
                             <Col>
-                                <h2 className="fadeIn fourth">MÚSICA</h2>
-                                <label className="fadeIn fourth"><input type="checkbox" id="DJ" name="DJ" onChange={(e) =>onChangeMusica('dj')} checked={estadoMusica.dj}/> DJ</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="Parranda Vallenata" name="Parranda Vallenata" onChange={(e) =>onChangeMusica('parranda')} checked={estadoMusica.parranda} /> Parranda Vallenata</label><br />
-                                <label className="fadeIn fourth"><input type="checkbox" id="Serenata" name="Serenata" onChange={(e) =>onChangeMusica('serenata')} checked={estadoMusica.serenata}/> Serenata</label><br />
+                             <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setGrupoMusical(e.target.value)} value={grupo_musical}>
+                                <option defaultValue>Seleccione Musica:</option>
+                                <option>DJ</option>
+                                <option>Parranda Vallenata</option>
+                                <option>Serenata</option>                                 
+                            </select>
+                                
                             </Col>
                         </Row>
                             <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)} value={adicionales}></textarea>
@@ -373,8 +289,3 @@ const boton={
     paddingRight: "20px"
 }
 
-const titulo={
-    textAlign: "left",
-    fontSize: "55px"
-
-}

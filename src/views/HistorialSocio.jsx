@@ -99,11 +99,7 @@ export default function HistorialSocio (){
 
         obtenerSocios();
     }
-    const titulo={
-        textAlign: "left",
-        fontSize: "55px"
-    
-    }
+
     
     return (
         <div className="historial">
@@ -111,7 +107,7 @@ export default function HistorialSocio (){
                 <div>
                     <div className="card">
                         <div className="card-header">
-                            <h3 style={titulo}>Historial de Socios</h3>
+                            <h3>Historial de Socios</h3>
                         </div>
                         <div className="input-group rounded">
 
