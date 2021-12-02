@@ -19,6 +19,11 @@ SocioCtrl.crearSocio= async(req,res)=>{
         contraseña, 
         rol
     })
+    const respuesta = await NuevoSocio.save()
+    res.json({
+        mensaje: 'Socio Creado',
+        respuesta
+    })
 
     const documentoSocio= await Socio.findOne ({documento:documento})
     if(documentoSocio){
