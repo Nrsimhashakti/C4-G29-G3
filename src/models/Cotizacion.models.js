@@ -21,4 +21,5 @@ const cotizacionSchema = new Schema({
   
 });
 
+
 module.exports=mongoose.model('Cotizacion',cotizacionSchema)
