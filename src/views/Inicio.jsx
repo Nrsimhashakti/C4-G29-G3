@@ -24,7 +24,7 @@ export const Inicio = () => {
     return(
         <>
          
-         <div className="container_12">
+         <div className="">
             {/* CARRUSEL */}
             
             <Carousel>
