@@ -20,7 +20,7 @@ export const Eventos = () => {
                 {/* <!--=======content================================--> */}
             
                 <div className="">
-                <div className="container_12">
+                <div className="">
                     <figure id="banner_internas">
                     <img className="img-responsive" style={{"width": "100%"}} src="https://www.clubcampestre.co/wp-content/uploads/2019/03/eventos-banner-club-campestre-1366x450_c.jpg" alt="Eventos" title="Eventos"/>
                     </figure>

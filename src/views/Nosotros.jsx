@@ -11,7 +11,7 @@ import {Image} from 'react-bootstrap'
 
 export const Nosotros = () => {
     return (
-        <div className="container_12">
+        <div className="">
         
             <figure id="banner_nosotros">
             <Image style={{"width": "100%"}} src="https://www.clubcampestre.co/wp-content/uploads/2019/03/el-club-banner-club-campestre-1366x450_c.jpg" alt="El Club" title="El Club"/>

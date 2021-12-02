@@ -24,7 +24,7 @@ export const Galeria = () => {
           {/* <!--=======content================================--> */}
 
           <div className=""><div className="ic"></div>
-            <div className="container_12">
+            <div className="">
                 <div className="grid_12">
                   <h3 style={{"paddingTop": "20px"}}>Eventos Realizados en nuestro Club</h3>
                 </div>
