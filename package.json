@@ -18,5 +18,8 @@
     "mongoose": "^6.0.14",
     "morgan": "^1.10.0",
     "serve": "^13.0.2"
+  },
+  "devDependencies": {
+    "react-scripts": "^4.0.3"
   }
 }
