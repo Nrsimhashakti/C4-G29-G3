@@ -27,41 +27,41 @@ export const Inicio = () => {
          <div className="">
             {/* CARRUSEL */}
             
-            <Carousel style={{width: "1320px", paddingLeft:"30px"}}>
-                <Carousel.Item >
-                    <img
-                    className="d-block w-100"
-                    src={slide1}
-                    alt="First slide"
-                    height="580px"
-                    />
-                    
-                </Carousel.Item>
-                <Carousel.Item >
-                    <img
-                    className="d-block w-100"
-                    src={slide2}
-                    alt="Second slide"
-                    height="580px"
-                    />
-                    
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src={slide3}
-                    alt="Third slide"
-                    height="580px"
-                    />
+            <Carousel>
+            <Carousel.Item >
+                <img
+                className="d-block w-100"
+                src={slide1}
+                alt="First slide"
+                height="480px"
+                />
                 
-                </Carousel.Item>
+            </Carousel.Item>
+            <Carousel.Item >
+                <img
+                className="d-block w-100"
+                src={slide2}
+                alt="Second slide"
+                height="480px"
+                />
+                
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                className="d-block w-100"
+                src={slide3}
+                alt="Third slide"
+                height="480px"
+                />
+            
+            </Carousel.Item>
             </Carousel>
             
 
             {/* SERVICIOS */}
             
             <h3>SERVICIOS</h3>
-            <CardGroup style={{width: "1320px", paddingLeft:"30px"}}>
+            <CardGroup>
                 <Card>
                     <CardImg
                     alt="Card image cap"
@@ -117,7 +117,7 @@ export const Inicio = () => {
             {/* NOTICIAS */}
             
             <h3>NOTICIAS</h3>      
-            <Carousel variant="dark" style={{width: "1320px", paddingLeft:"30px"}}>
+            <Carousel variant="dark">
             <Carousel.Item>
                 <img
                 className="d-block w-100"
@@ -153,8 +153,8 @@ export const Inicio = () => {
             {/* EQUIPO DE TRABAJO */}
             
             <h3>EQUIPO DE TRABAJO</h3>
-            <div className="row justify-content-center" style={{width: "1320px", paddingLeft:"30px"}}>
-                <div className="col-12 col-md-6" >
+            <div className="row justify-content-center">
+                <div className="col-12 col-md-6">
                     <div className="card border-0 shadow-lg ">
                         <div className="card-body p-4">
                             <div className="card-text pt-1">
