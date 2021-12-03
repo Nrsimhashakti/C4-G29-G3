@@ -23,8 +23,8 @@ export default function HistorialCotizacion (){
     const [fecha, setFecha]=useState('');
     const [hora, setHora]=useState('');
     const [comida, setComida]=useState('');
-    const [bebida, setBebidas]=useState('');
-    const [grupoMusical, setGrupoMusical]=useState('');
+    const [bebidas, setBebidas]=useState('');
+    const [grupo_musical, setGrupoMusical]=useState('');
     const [adicionales, setAdicionales]=useState('');
    // const [flagCheck, setFlagCheck]=useState(fase);
 
@@ -80,7 +80,7 @@ export default function HistorialCotizacion (){
 
         const cotizacion={
             nombre, apellido, documento, correo, telefono, tipoEvento, numPersonas, 
-            area, fecha, hora, comida, bebida, grupoMusical, adicionales
+            area, fecha, hora, comida, bebidas, grupo_musical, adicionales
         }
 
         const token= sessionStorage.getItem('token');
@@ -152,7 +152,7 @@ export default function HistorialCotizacion (){
                                 </Col>
 
                             </Row>
-                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todos las Cotizaciones"></input>
+                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todas las Cotizaciones"/>
 
                             <div>
                                 <input style={boton} onClick={e =>{e.preventDefault(); window.location.href='/registrocotizacion'}} type="submit" value="Crear Cotizacion"/>
@@ -222,31 +222,31 @@ export default function HistorialCotizacion (){
                                 </button>
                             </div>
                             <form onSubmit={actualizar}>
-                                <Row xs="3" className="input-resev">
-                                    <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)} value={tipoEvento}>
-                                            <option defaultValue>Seleccione evento:</option>
-                                            <option value="Matrimonio">Matrimonio</option>
-                                            <option value="Grado">Grado</option>
-                                            <option value="Cumpleaños">Cumpleaños</option>
-                                            <option value="Reunión Empresarial">Reunión Empresarial</option>
-                                        </select></Col>
-                                    <Col><select name="tipoEspacio" id="tipoEspacio" className="fadeIn third " onChange={(e) =>setArea(e.target.value)} value={area}>
-                                            <option defaultValue>Seleccione Area:</option>
-                                            <option value="Salón presidencial">Salón presidencial</option>
-                                            <option value="Salón gourmet">Salón gourmet</option>
-                                            <option value="Piscina">Piscina</option>
-                                            <option value="Terraza parilla">Terraza parilla</option>
-                                            <option value="Terraza fútbol">Terraza fútbol</option>
-                                            <option value="Parque">Parque</option>
-                                        </select></Col>
-                                    <Col><input type="number" className="fadeIn third" name="login" placeholder="Número de personas" onChange={(e) =>setNumPersonas(e.target.value)} value={numPersonas} required /></Col>
-                                </Row>
-                                <Row xs="2" className="input-resev">
-                                    <Col><input type="date" className="fadeIn third" name="login" placeholder="Fecha" onChange={(e) =>setFecha(e.target.value)} value={fecha} required/></Col>
-                                    <Col><input type="time" className="fadeIn third" name="login" placeholder="Hora" onChange={(e) =>setHora(e.target.value)} value={hora} required/></Col>
-                                </Row>
-                                <Row xs="3" className="input-resev">
-                            <Col>
+                        <Row xs="3" className="input-resev">
+                            <Col><label>Evento</label><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)} value={tipoEvento}>
+                                    <option >Seleccione evento:</option>
+                                    <option value="Matrimonio">Matrimonio</option>
+                                    <option value="Grado">Grado</option>
+                                    <option value="Cumpleaños">Cumpleaños</option>
+                                    <option value="Reunión Empresarial">Reunión Empresarial</option>
+                                </select></Col>
+                            <Col><label>Area</label><select name="tipoEspacio" id="tipoEspacio" className="fadeIn third " onChange={(e) =>setArea(e.target.value)} value={area}>
+                                    <option >Seleccione Area:</option>
+                                    <option value="Salón presidencial">Salón presidencial</option>
+                                    <option value="Salón gourmet">Salón gourmet</option>
+                                    <option value="Piscina">Piscina</option>
+                                    <option value="Terraza parilla">Terraza parilla</option>
+                                    <option value="Terraza fútbol">Terraza fútbol</option>
+                                    <option value="Parque">Parque</option>
+                                </select></Col>
+                            <Col><label>N° Personas</label><input type="number" className="fadeIn third" name="login" placeholder="Número de personas" onChange={(e) =>setNumPersonas(e.target.value)} value={numPersonas} required /></Col>
+                        </Row>
+                        <Row xs="2" className="input-resev">
+                            <Col><label>Fecha</label><input type="date" className="fadeIn fourth" name="login" placeholder="Fecha" onChange={(e) =>setFecha(e.target.value)} value={fecha} required/></Col>
+                            <Col><label>Hora</label><input type="time" className="fadeIn fourth" name="login" placeholder="Hora" onChange={(e) =>setHora(e.target.value)} value={hora} required/></Col>
+                        </Row>
+                        <Row xs="3" className="input-resev">
+                            <Col><label>Comida</label>
                                 <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setComida(e.target.value)} value={comida}>
                                 <option defaultValue>Seleccione Comida:</option>
                                     <option>Buffet</option>
@@ -254,10 +254,10 @@ export default function HistorialCotizacion (){
                                     <option>Bocadillos</option>
                                     <option>Cathering</option>
                                 </select>
-                            </Col>
-                            <Col>
-                                <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setBebidas(e.target.value)} value={bebida}>
-                                <option defaultValue>Seleccione bebida:</option>
+                               </Col>
+                            <Col><label>Bebida</label>
+                                <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setBebidas(e.target.value)} value={bebidas}>
+                                    <option defaultValue>Seleccione Bebida:</option>
                                     <option>Vino Espumoso</option>
                                     <option>Whisky</option>
                                     <option>Tequila</option>
@@ -265,8 +265,8 @@ export default function HistorialCotizacion (){
                                 </select>
                             </Col>
 
-                            <Col>
-                             <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setGrupoMusical(e.target.value)} value={grupoMusical}>
+                            <Col><label>Musica</label>
+                             <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setGrupoMusical(e.target.value)} value={grupo_musical}>
                                 <option defaultValue>Seleccione Musica:</option>
                                 <option>DJ</option>
                                 <option>Parranda Vallenata</option>
@@ -275,9 +275,9 @@ export default function HistorialCotizacion (){
                                 
                             </Col>
                         </Row>
-                                <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)} value={adicionales}></textarea>
-                                <input type="submit" className="fadeIn fourth" value="ACTUALIZAR"/>
-                            </form>
+                            <textarea className="fadeIn fourth input-resev" name="textarea" rows="8" cols="40" placeholder="Adicionales" onChange={(e) =>setAdicionales(e.target.value)} value={adicionales}></textarea>
+                            <input type="submit" className="fadeIn fourth" value="ACTUALIZAR"/>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -286,7 +286,7 @@ export default function HistorialCotizacion (){
     )
 }
 const boton={
-    fontSize: "20px",
+    fontSize: "18px",
     borderRadius: "5px",
     border: "1px solid #263555",
     borderBottomWidth: "2px",

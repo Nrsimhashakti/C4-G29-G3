@@ -142,7 +142,7 @@ export default function HistorialReservas (){
                                 </Col>
 
                             </Row>
-                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todas las Reservas"></input>
+                            <input style={boton} onClick={mostrarTodas} type="submit" value="Mostrar Todas las Reservas"/>
 
                             <div>
                                 <input style={boton} onClick={e =>{e.preventDefault(); window.location.href='/registroreserva'}} type="submit" value="Crear Reserva"/>
@@ -203,8 +203,8 @@ export default function HistorialReservas (){
         </section>
             <div className="modal fade" id='actualizarReserva'>
             <div className="modal-dialog modal-lg regwrapper fadeInDown container">
-            <div className="modal-content user-details2">
-                <div className="modal-body">
+            <div className="modal-content user-details2 ">
+                <div className="modal-body " >
                     <div className="modal-header">
                         <h3 className="active fadeIn first"> ACTUALIZAR </h3>
                         <button className='close'  data-dismiss='modal'>
@@ -213,14 +213,14 @@ export default function HistorialReservas (){
                     </div>
                     <form onSubmit={actualizar}>
                         <Row xs="3" className="input-resev">
-                            <Col><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)} value={tipoEvento}>
+                            <Col><label>Evento</label><select name="tipoEvento" id="tipoEvento" className="fadeIn third" onChange={(e) =>setTipoEvento(e.target.value)} value={tipoEvento}>
                                     <option >Seleccione evento:</option>
                                     <option value="Matrimonio">Matrimonio</option>
                                     <option value="Grado">Grado</option>
                                     <option value="Cumpleaños">Cumpleaños</option>
                                     <option value="Reunión Empresarial">Reunión Empresarial</option>
                                 </select></Col>
-                            <Col><select name="tipoEspacio" id="tipoEspacio" className="fadeIn third " onChange={(e) =>setArea(e.target.value)} value={area}>
+                            <Col><label>Area</label><select name="tipoEspacio" id="tipoEspacio" className="fadeIn third " onChange={(e) =>setArea(e.target.value)} value={area}>
                                     <option >Seleccione Area:</option>
                                     <option value="Salón presidencial">Salón presidencial</option>
                                     <option value="Salón gourmet">Salón gourmet</option>
@@ -229,14 +229,14 @@ export default function HistorialReservas (){
                                     <option value="Terraza fútbol">Terraza fútbol</option>
                                     <option value="Parque">Parque</option>
                                 </select></Col>
-                            <Col><input type="number" className="fadeIn third" name="login" placeholder="Número de personas" onChange={(e) =>setNumPersonas(e.target.value)} value={numPersonas} required /></Col>
+                            <Col><label>N° Personas</label><input type="number" className="fadeIn third" name="login" placeholder="Número de personas" onChange={(e) =>setNumPersonas(e.target.value)} value={numPersonas} required /></Col>
                         </Row>
                         <Row xs="2" className="input-resev">
-                            <Col><input type="date" className="fadeIn fourth" name="login" placeholder="Fecha" onChange={(e) =>setFecha(e.target.value)} value={fecha} required/></Col>
-                            <Col><input type="time" className="fadeIn fourth" name="login" placeholder="Hora" onChange={(e) =>setHora(e.target.value)} value={hora} required/></Col>
+                            <Col><label>Fecha</label><input type="date" className="fadeIn fourth" name="login" placeholder="Fecha" onChange={(e) =>setFecha(e.target.value)} value={fecha} required/></Col>
+                            <Col><label>Hora</label><input type="time" className="fadeIn fourth" name="login" placeholder="Hora" onChange={(e) =>setHora(e.target.value)} value={hora} required/></Col>
                         </Row>
                         <Row xs="3" className="input-resev">
-                            <Col>
+                            <Col><label>Comida</label>
                                 <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setComida(e.target.value)} value={comida}>
                                 <option defaultValue>Seleccione Comida:</option>
                                     <option>Buffet</option>
@@ -245,7 +245,7 @@ export default function HistorialReservas (){
                                     <option>Cathering</option>
                                 </select>
                                </Col>
-                            <Col>
+                            <Col><label>Bebida</label>
                                 <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setBebidas(e.target.value)} value={bebidas}>
                                     <option defaultValue>Seleccione Bebida:</option>
                                     <option>Vino Espumoso</option>
@@ -255,7 +255,7 @@ export default function HistorialReservas (){
                                 </select>
                             </Col>
 
-                            <Col>
+                            <Col><label>Musica</label>
                              <select name="comida" id="comida" className="fadeIn fourth " onChange={(e) =>setGrupoMusical(e.target.value)} value={grupo_musical}>
                                 <option defaultValue>Seleccione Musica:</option>
                                 <option>DJ</option>
