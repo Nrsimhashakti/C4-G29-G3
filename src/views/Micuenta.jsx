@@ -37,8 +37,12 @@ export default function Micuenta (props) {
             telefono
         }
 
-        const respuesta= await Axios.put('/socio/actualizar-socio/'+id,socio)
+        const token= sessionStorage.getItem('token');
+        const respuesta= await Axios.put('/socio/actualizar-socio/'+id,socio,{
+            headers:{'autorizacion':token} 
+        });
         const mensaje=respuesta.data.mensaje
+        
         
         Swal.fire({
             icon: 'success',
