@@ -36,7 +36,7 @@ export const Eventos = () => {
                     </div>
                     <div className="boxes ">
                     <Row>
-                        <Col md={4}>
+                        <Col>
                         <div className="grid_4 ">
                             <figure>
                                 <div><img src={matrimonio} alt=""/></div>
@@ -48,7 +48,7 @@ export const Eventos = () => {
                         </div>
                         </Col>
                         
-                        <Col md={4}>
+                        <Col>
                         <div className="grid_4">
                             <figure>
                                 <div><img src={empresariales} alt=""/></div>
@@ -59,7 +59,7 @@ export const Eventos = () => {
                             </figure>
                         </div>
                         </Col>
-                        <Col md={4}>
+                        <Col >
                         <div className="grid_4">
                             <figure>
                                 <div><img src={grados} alt=""/></div>
@@ -79,7 +79,7 @@ export const Eventos = () => {
                     </div>
                     <div className="boxes">
                     <Row>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={big9} alt="" /></div>
@@ -90,7 +90,7 @@ export const Eventos = () => {
                         </figure>
                     </div>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={exterior} alt="" /></div>
@@ -101,7 +101,7 @@ export const Eventos = () => {
                         </figure>
                     </div>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={siete} alt=""  /></div>
@@ -126,7 +126,7 @@ export const Eventos = () => {
                     </div>
                     <div className="boxes">
                     <Row>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={futbol} alt=""/></div>
@@ -138,7 +138,7 @@ export const Eventos = () => {
                         </figure>
                     </div>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={tenis} alt=""/></div>
@@ -149,7 +149,7 @@ export const Eventos = () => {
                         </figure>
                     </div>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={squash} alt=""/></div>
@@ -168,7 +168,7 @@ export const Eventos = () => {
                     </div>
                     <div className="boxes">
                     <Row>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={natacion} alt=""/></div>
@@ -180,7 +180,7 @@ export const Eventos = () => {
                         </figure>
                     </div>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={Billar} alt=""/></div>
@@ -192,7 +192,7 @@ export const Eventos = () => {
                         </figure>
                     </div>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     <div className="grid_4">
                         <figure>
                             <div><img src={bolos} alt=""/></div>
