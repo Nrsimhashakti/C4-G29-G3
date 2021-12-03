@@ -12,7 +12,7 @@ app.use(cors({ origin:'*'}));
 
 
 //RUTAS
-app.use('/socio', require('/routes/Socio.route'))
+app.use('/socio', require('./routes/Socio.route'))
 app.use('/empleado', require('./routes/Empleado.route'))
 app.use('/cotizacion', require('./routes/Cotizacion.route'))
 app.use('/reserva', require('./routes/Reserva.route'))

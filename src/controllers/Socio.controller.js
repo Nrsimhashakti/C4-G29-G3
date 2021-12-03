@@ -19,11 +19,6 @@ SocioCtrl.crearSocio= async(req,res)=>{
         contraseña, 
         rol
     })
-    const respuesta = await NuevoSocio.save()
-    res.json({
-        mensaje: 'Socio Creado',
-        respuesta
-    })
 
     const documentoSocio= await Socio.findOne ({documento:documento})
     if(documentoSocio){
@@ -33,12 +28,12 @@ SocioCtrl.crearSocio= async(req,res)=>{
     }
     else{
         NuevoSocio.contraseña= await bcrypt.hash(contraseña,10)
-        const token = jwt.sign({_id:NuevoSocio._id},'Secreta')
+        const token = jwt.sign({_id:NuevoSocio._id},'secreta')
         await NuevoSocio.save()
         res.json({
             mensaje: 'Bienvenido',
-            id:NuevoSocio._id,
-            nombre:NuevoSocio.nombre,
+            id: NuevoSocio._id,
+            nombre: NuevoSocio.nombre,
             token
 
         })
