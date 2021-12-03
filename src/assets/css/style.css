@@ -1,5 +1,6 @@
 /**/
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url(//db.onlinewebfonts.com/c/0c13f649498cf1c052f504d863076f26?family=Pathway+Gothic+One);
 
 @import "../css/reset.css";
 @import "../css/grid.css";
@@ -553,12 +554,13 @@ a.gal:hover img {
 }
 
 .text1 {
-  font-size: 16px;
+  font-size: 25px;
   line-height: 19px;
   color: #263555;
   text-align: justify;
   display: flex;
   align-items: center;
+  line-height : 25px;
 }
 
 .page1 .text1 {
